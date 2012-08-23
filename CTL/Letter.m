@@ -10,4 +10,7 @@
 
 @implementation Letter
 
+@synthesize character = _character;
+@synthesize points = _points;
+
 @end

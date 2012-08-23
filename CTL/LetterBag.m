@@ -8,14 +8,25 @@
 
 #import "LetterBag.h"
 #import "Letter.h"
+#import "AlphabetFactory.h"
+#import "LanguageDefines.h"
 
 @implementation LetterBag {
 	NSMutableArray *letters;
 }
 
-- (LetterBag *)initWithNumberOfPlayers:(NSInteger)numberOfPlayers
+- (LetterBag *)initWithLanguage:(NSString *)language numberOfPlayers:(NSInteger)numberOfPlayers
 {
-	return nil;
+	if (self = [super init]) {
+		letters = [[NSMutableArray alloc] init];
+		NSArray *alphabet;
+		for (int i = 0; i < numberOfPlayers; i++) {
+			alphabet = [AlphabetFactory alphabetForLanguage:language];
+			[letters addObjectsFromArray:alphabet];
+		}
+	}
+	
+	return self;
 }
 
 - (Letter *)getLetter

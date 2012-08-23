@@ -7,7 +7,21 @@
 //
 
 #import "Game.h"
+#import "LetterBag.h"
+#import "Letter.h"
 
 @implementation Game
+
+@synthesize isServer = _isServer;
+@synthesize letterBag = _letterBag;
+@synthesize playerGameDataArray = _playerGameDataArray;
+
+
+- (id)initWithPlayers
+{
+	if (self = [super init]) {
+		//Skapa viewn programmatiskt, en rad per spelare
+	}
+}
 
 @end

@@ -10,4 +10,8 @@
 
 @interface PlayerCell : UIView
 
+@property (nonatomic, strong) IBOutlet UIImageView *thumbnail;
+@property (nonatomic, strong) IBOutlet UILabel *currentScore;
+@property (nonatomic, strong) IBOutlet UILabel *futureScore;
+
 @end

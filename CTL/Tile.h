@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class TileView;
+
 @interface Tile : NSObject
+
+@property (nonatomic, strong) TileView *tileView;
 
 @end

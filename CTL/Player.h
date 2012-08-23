@@ -10,4 +10,8 @@
 
 @interface Player : NSObject
 
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *peerID;
+@property (nonatomic, strong) UIImage *thumbnail;
+
 @end

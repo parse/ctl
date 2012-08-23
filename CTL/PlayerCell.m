@@ -10,6 +10,10 @@
 
 @implementation PlayerCell
 
+@synthesize thumbnail = _thumbnail;
+@synthesize currentScore = _currentScore;
+@synthesize futureScore = _futureScore;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

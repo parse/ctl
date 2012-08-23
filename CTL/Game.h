@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class LetterBag;
+@class PlayerGameData;
+
 @interface Game : NSObject
+
+@property (nonatomic) BOOL isServer;
+@property (nonatomic, strong) LetterBag *letterBag;
+@property (nonatomic, strong) NSMutableArray *playerGameDataArray;
 
 @end

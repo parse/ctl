@@ -10,4 +10,8 @@
 
 @implementation Player
 
+@synthesize name = _name;
+@synthesize peerID = _peerID;
+@synthesize thumbnail = _thumbnail;
+
 @end

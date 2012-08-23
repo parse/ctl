@@ -7,7 +7,10 @@
 //
 
 #import "Tile.h"
+#import "TileView.h"
 
 @implementation Tile
+
+@synthesize tileView = _tileView;
 
 @end

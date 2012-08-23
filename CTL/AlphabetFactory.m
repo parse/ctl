@@ -11,7 +11,7 @@
 
 @implementation AlphabetFactory
 
-- (NSArray *)alphabetForLanguage:(NSString *)language
++ (NSArray *)alphabetForLanguage:(NSString *)language
 {
 	if ([language isEqualToString:SWEDISH]) {
 		// TODO: lägg till resten av bokstäverna...

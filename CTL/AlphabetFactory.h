@@ -10,6 +10,6 @@
 
 @interface AlphabetFactory : NSObject
 
-- (NSArray *)alphabetForLanguage:(NSString *)language;
++ (NSArray *)alphabetForLanguage:(NSString *)language;
 
 @end

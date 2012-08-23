@@ -10,4 +10,9 @@
 
 @implementation PlayerGameData
 
+@synthesize player = _player;
+@synthesize score = _score;
+@synthesize tileArray = _tileArray;
+@synthesize playerCell = _playerCell;
+
 @end
