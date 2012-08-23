@@ -1,0 +1,23 @@
+//
+//  Alphabet.m
+//  CTL
+//
+//  Created by Oskar Wirén on 8/23/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "AlphabetFactory.h"
+#import "LanguageDefines.h"
+
+@implementation AlphabetFactory
+
+- (NSArray *)alphabetForLanguage:(NSString *)language
+{
+	if ([language isEqualToString:SWEDISH]) {
+		// TODO: lägg till resten av bokstäverna...
+		return [NSArray arrayWithObjects:@"A", @"B", @"...", nil];
+	}
+	return nil;
+}
+
+@end

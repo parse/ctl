@@ -10,4 +10,6 @@
 
 @interface HostGameViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *playerArray;
+
 @end

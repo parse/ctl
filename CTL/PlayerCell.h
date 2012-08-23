@@ -1,5 +1,5 @@
 //
-//  JoinGameViewController.h
+//  PlayerCell.h
 //  CTL
 //
 //  Created by Oskar Wirén on 8/23/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JoinGameViewController : UIViewController
-
-@property (nonatomic, strong) NSMutableArray *playerArray;
+@interface PlayerCell : UIView
 
 @end

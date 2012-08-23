@@ -78,6 +78,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="LGN-3Z-OX9" kind="modal" modalTransitionStyle="flipHorizontal" id="2wb-sx-oBE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -86,6 +89,55 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="243" y="33"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="fCD-WT-rgm">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ki0-b0-5L6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="LGN-3Z-OX9" customClass="InfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ydy-OW-eJ8">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="INFO SUPER AWESOME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="CmG-X8-lVX">
+                                <rect key="frame" x="61" y="60" width="198" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gnz-aA-FYi">
+                                <rect key="frame" x="20" y="15" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="243" y="656"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="ZVF-LD-ZhW">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Uv-cY-iSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="lvk-0a-WSf" customClass="GameViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bOT-sf-Op3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="707" y="960"/>
         </scene>
         <!--Join Game View Controller - Join Game-->
         <scene sceneID="8fM-AW-Emi">
@@ -123,6 +175,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Join Game" id="p3q-2t-0qp"/>
+                    <connections>
+                        <segue destination="lvk-0a-WSf" kind="modal" id="61r-E4-2KT"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="668" y="320"/>
@@ -169,8 +224,14 @@
         </scene>
     </scenes>
     <classes>
+        <class className="GameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameViewController.h"/>
+        </class>
         <class className="HostGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HostGameViewController.h"/>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
         </class>
         <class className="JoinGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JoinGameViewController.h"/>
