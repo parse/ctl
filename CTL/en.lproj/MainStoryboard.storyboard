@@ -392,7 +392,7 @@
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="707" y="960"/>
+            <point key="canvasLocation" x="1155" y="33"/>
         </scene>
         <!--Join Game View Controller - Join Game-->
         <scene sceneID="8fM-AW-Emi">
@@ -431,7 +431,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Join Game" id="p3q-2t-0qp"/>
                     <connections>
-                        <segue destination="lvk-0a-WSf" kind="modal" id="61r-E4-2KT"/>
+                        <segue destination="lvk-0a-WSf" kind="modal" identifier="presentGameViewController" id="61r-E4-2KT"/>
                     </connections>
                 </viewController>
             </objects>
@@ -468,6 +468,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="lvk-0a-WSf" kind="modal" identifier="presentGameViewController" id="NUY-xQ-8ae"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -500,4 +503,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="NUY-xQ-8ae"/>
+    </inferredMetricsTieBreakers>
 </document>

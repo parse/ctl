@@ -17,6 +17,9 @@
 	* Profit
  */
 #import "GameViewController.h"
+#import "LetterBag.h"
+#import "Letter.h"
+#import "Game.h"
 
 @interface GameViewController ()
 
@@ -24,7 +27,10 @@
 
 @implementation GameViewController
 
-@synthesize playerArray;
+@synthesize playerArray = _playerArray;
+@synthesize letterBag = _letterBag;
+@synthesize gameMetaData = _gameMetaData;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
 	// Do any additional setup after loading the view.
 }
 
@@ -45,6 +52,14 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+// TODO: kolla upp smidigaste sättet att sätta upp spelplanens data. Jag kan tänkte göra det i
+- (void)setGameMetaData:(Game *)gameMetaData
+{
+	_gameMetaData = gameMetaData;
+	_letterBag = [[LetterBag alloc] initWithLanguage:_gameMetaData.language 
+									 numberOfPlayers:_playerArray.count];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

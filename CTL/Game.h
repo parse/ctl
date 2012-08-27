@@ -16,5 +16,6 @@
 @property (nonatomic) BOOL isServer;
 @property (nonatomic, strong) LetterBag *letterBag;
 @property (nonatomic, strong) NSMutableArray *playerGameDataArray;
+@property (nonatomic, strong) NSString *language;
 
 @end

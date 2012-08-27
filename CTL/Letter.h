@@ -11,6 +11,6 @@
 @interface Letter : NSObject
 
 @property (nonatomic, strong) NSString *character;
-@property (nonatomic) NSNumber *points;
+@property (nonatomic, strong) NSNumber *points;
 
 @end

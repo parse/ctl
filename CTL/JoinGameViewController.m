@@ -7,6 +7,7 @@
 //
 
 #import "JoinGameViewController.h"
+#import "GameViewController.h"
 
 @interface JoinGameViewController ()
 
@@ -40,6 +41,14 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if (segue.identifier == kSeguePresentGameViewController) {
+		GameViewController *gVC = (GameViewController *)self.presentedViewController;
+		// TODO: sätt rätt game data i gVC
+	}
 }
 
 @end

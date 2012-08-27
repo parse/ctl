@@ -10,9 +10,9 @@
 
 @implementation PlayerCell
 
-@synthesize thumbnail = _thumbnail;
 @synthesize currentScore = _currentScore;
 @synthesize futureScore = _futureScore;
+@synthesize thumbnailImage = _thumbnailImage;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -21,6 +21,26 @@
         // Initialization code
     }
     return self;
+}
+
+// Override setters to make sure that the labels and imageViews are updated.
+
+- (void)setFutureScore:(NSNumber *)futureScore
+{
+	_futureScore = futureScore;
+	[futureScoreLabel setText:[NSString stringWithFormat:@"%@", _futureScore]];
+}
+
+- (void)setCurrentScore:(NSNumber *)currentScore
+{
+	_currentScore = currentScore;
+	[futureScoreLabel setText:[NSString stringWithFormat:@"%@", _currentScore]];
+}
+
+- (void)setThumbnailImage:(UIImage *)thumbnailImage
+{
+	_thumbnailImage = thumbnailImage;
+	[thumbnailImageView setImage:_thumbnailImage];
 }
 
 /*

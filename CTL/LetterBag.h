@@ -13,5 +13,6 @@
 @interface LetterBag : NSObject
 
 - (Letter *)getLetter;
+- (LetterBag *)initWithLanguage:(NSString *)language numberOfPlayers:(NSInteger)numberOfPlayers;
 
 @end

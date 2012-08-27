@@ -15,7 +15,7 @@
 @synthesize isServer = _isServer;
 @synthesize letterBag = _letterBag;
 @synthesize playerGameDataArray = _playerGameDataArray;
-
+@synthesize language = _language;
 
 - (id)initWithPlayers
 {

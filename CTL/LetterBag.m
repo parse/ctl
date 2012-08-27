@@ -29,10 +29,16 @@
 	return self;
 }
 
+/**
+ * Used to get a letter for the gameBoard. 
+ * Removes the letter that has been returned.
+ */
 - (Letter *)getLetter
 {
-	// Slumpa fram bokstav ur påse, ta bort från påse och returnera
-	return nil;
+	NSInteger rand = arc4random()%letters.count;
+	Letter *letter = [letters objectAtIndex:rand];
+	[letters removeObject:letter];
+	return letter;
 }
 
 @end
