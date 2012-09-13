@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-NSString *const kSeguePresentGameController = @"presentGameViewController";
-
 @interface JoinGameViewController : UIViewController
 
 @property (nonatomic, strong) NSMutableArray *playerArray;

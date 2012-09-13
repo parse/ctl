@@ -20,8 +20,8 @@
 		752C0ECE15E6AA0F009169FE /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ECD15E6AA0F009169FE /* JoinGameViewController.m */; };
 		752C0ED115E6AA1A009169FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ED015E6AA1A009169FE /* GameViewController.m */; };
 		752C0ED415E6AAA8009169FE /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ED315E6AAA8009169FE /* InfoViewController.m */; };
-		7590453015E6B577005DC5BC /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590452F15E6B577005DC5BC /* PlayerCell.m */; };
-		7590453315E6B58B005DC5BC /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7590453215E6B58B005DC5BC /* PlayerCell.xib */; };
+		7590453015E6B577005DC5BC /* PlayerCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590452F15E6B577005DC5BC /* PlayerCellView.m */; };
+		7590453315E6B58B005DC5BC /* PlayerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7590453215E6B58B005DC5BC /* PlayerCellView.xib */; };
 		7590453615E6B913005DC5BC /* LetterBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590453515E6B913005DC5BC /* LetterBag.m */; };
 		7590453915E6BB9F005DC5BC /* AlphabetFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590453815E6BB9F005DC5BC /* AlphabetFactory.m */; };
 		75ACB68015E6B03D00985EA6 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB67F15E6B03D00985EA6 /* Player.m */; };
@@ -57,14 +57,15 @@
 		752C0ED015E6AA1A009169FE /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		752C0ED215E6AAA8009169FE /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		752C0ED315E6AAA8009169FE /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		7590452E15E6B577005DC5BC /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
-		7590452F15E6B577005DC5BC /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
-		7590453215E6B58B005DC5BC /* PlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
+		7590452E15E6B577005DC5BC /* PlayerCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCellView.h; sourceTree = "<group>"; };
+		7590452F15E6B577005DC5BC /* PlayerCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCellView.m; sourceTree = "<group>"; };
+		7590453215E6B58B005DC5BC /* PlayerCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerCellView.xib; sourceTree = "<group>"; };
 		7590453415E6B913005DC5BC /* LetterBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterBag.h; sourceTree = "<group>"; };
 		7590453515E6B913005DC5BC /* LetterBag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterBag.m; sourceTree = "<group>"; };
 		7590453715E6BB9F005DC5BC /* AlphabetFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphabetFactory.h; sourceTree = "<group>"; };
 		7590453815E6BB9F005DC5BC /* AlphabetFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlphabetFactory.m; sourceTree = "<group>"; };
 		7590453E15E6BC7A005DC5BC /* LanguageDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageDefines.h; sourceTree = "<group>"; };
+		759045411601F87B005DC5BC /* SegueDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegueDefines.h; sourceTree = "<group>"; };
 		75ACB67E15E6B03D00985EA6 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		75ACB67F15E6B03D00985EA6 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		75ACB68115E6B06B00985EA6 /* PlayerGameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGameData.h; sourceTree = "<group>"; };
@@ -194,9 +195,9 @@
 				75ACB68D15E6B29300985EA6 /* TileView.xib */,
 				75ACB68F15E6B2AC00985EA6 /* TileView.h */,
 				75ACB69015E6B2AC00985EA6 /* TileView.m */,
-				7590452E15E6B577005DC5BC /* PlayerCell.h */,
-				7590452F15E6B577005DC5BC /* PlayerCell.m */,
-				7590453215E6B58B005DC5BC /* PlayerCell.xib */,
+				7590452E15E6B577005DC5BC /* PlayerCellView.h */,
+				7590452F15E6B577005DC5BC /* PlayerCellView.m */,
+				7590453215E6B58B005DC5BC /* PlayerCellView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -205,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				7590453E15E6BC7A005DC5BC /* LanguageDefines.h */,
+				759045411601F87B005DC5BC /* SegueDefines.h */,
 			);
 			name = Defines;
 			sourceTree = "<group>";
@@ -269,7 +271,7 @@
 				752C0EAD15E6A5AA009169FE /* InfoPlist.strings in Resources */,
 				752C0EB615E6A5AA009169FE /* MainStoryboard.storyboard in Resources */,
 				75ACB68E15E6B29300985EA6 /* TileView.xib in Resources */,
-				7590453315E6B58B005DC5BC /* PlayerCell.xib in Resources */,
+				7590453315E6B58B005DC5BC /* PlayerCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +296,7 @@
 				75ACB68915E6B10D00985EA6 /* Tile.m in Sources */,
 				75ACB68C15E6B1E000985EA6 /* Letter.m in Sources */,
 				75ACB69115E6B2AC00985EA6 /* TileView.m in Sources */,
-				7590453015E6B577005DC5BC /* PlayerCell.m in Sources */,
+				7590453015E6B577005DC5BC /* PlayerCellView.m in Sources */,
 				7590453615E6B913005DC5BC /* LetterBag.m in Sources */,
 				7590453915E6BB9F005DC5BC /* AlphabetFactory.m in Sources */,
 			);
