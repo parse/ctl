@@ -45,7 +45,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	if (segue.identifier == kSeguePresentGameViewController) {
+	if (segue.identifier == kSeguePresentGameController) {
 		GameViewController *gVC = (GameViewController *)self.presentedViewController;
 		// TODO: sätt rätt game data i gVC
 	}

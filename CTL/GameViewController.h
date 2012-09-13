@@ -11,8 +11,6 @@
 @class LetterBag;
 @class Game;
 
-NSString *const kSeguePresentGameViewController = @"presentGameViewController";
-
 @interface GameViewController : UIViewController {
 }
 
