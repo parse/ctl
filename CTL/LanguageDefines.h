@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define SWEDISH @"Swedish"
+#define ENGLISH_US @"English"
 
 @interface LanguageDefines : NSObject
 
