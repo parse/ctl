@@ -21,7 +21,11 @@
 {
 	if (self = [super init]) {
 		//Skapa viewn programmatiskt, en rad per spelare
+        
+        return self;
 	}
+    
+    return nil;
 }
 
 @end
