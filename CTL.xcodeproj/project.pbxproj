@@ -31,6 +31,7 @@
 		75ACB68C15E6B1E000985EA6 /* Letter.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB68B15E6B1E000985EA6 /* Letter.m */; };
 		75ACB68E15E6B29300985EA6 /* TileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75ACB68D15E6B29300985EA6 /* TileView.xib */; };
 		75ACB69115E6B2AC00985EA6 /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB69015E6B2AC00985EA6 /* TileView.m */; };
+		9A57ED88160347E500AB95F0 /* Packet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57ED87160347E500AB95F0 /* Packet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		75ACB68D15E6B29300985EA6 /* TileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TileView.xib; sourceTree = "<group>"; };
 		75ACB68F15E6B2AC00985EA6 /* TileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileView.h; sourceTree = "<group>"; };
 		75ACB69015E6B2AC00985EA6 /* TileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileView.m; sourceTree = "<group>"; };
+		9A57ED86160347E500AB95F0 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
+		9A57ED87160347E500AB95F0 /* Packet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Packet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +215,8 @@
 		75ACB67C15E6AF9A00985EA6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9A57ED86160347E500AB95F0 /* Packet.h */,
+				9A57ED87160347E500AB95F0 /* Packet.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				7590453015E6B577005DC5BC /* PlayerCell.m in Sources */,
 				7590453615E6B913005DC5BC /* LetterBag.m in Sources */,
 				7590453915E6BB9F005DC5BC /* AlphabetFactory.m in Sources */,
+				9A57ED88160347E500AB95F0 /* Packet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,6 +36,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        //Skapa viewn programmatiskt, en rad per spelare
+
         // Custom initialization
     }
     return self;
