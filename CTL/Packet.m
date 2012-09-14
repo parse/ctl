@@ -21,12 +21,12 @@
 
 - (id)initWithType:(PacketType)packetType
 {
-	if ((self = [super init]))
-	{
+	if ((self = [super init])) {
 		self.packetNumber = -1;
 		self.packetType = packetType;
 		self.sendReliably = YES;
 	}
+    
 	return self;
 }
 
