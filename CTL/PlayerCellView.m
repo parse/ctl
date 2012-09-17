@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PlayerCell.h"
+#import "PlayerCellView.h"
 
-@implementation PlayerCell
+@implementation PlayerCellView
 
 @synthesize currentScore = _currentScore;
 @synthesize futureScore = _futureScore;

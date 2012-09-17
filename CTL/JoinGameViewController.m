@@ -8,6 +8,7 @@
 
 #import "JoinGameViewController.h"
 #import "GameViewController.h"
+#import "SegueDefines.h"
 
 @interface JoinGameViewController ()
 
