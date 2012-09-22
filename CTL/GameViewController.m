@@ -19,7 +19,7 @@
 #import "GameViewController.h"
 #import "LetterBag.h"
 #import "Letter.h"
-#import "Game.h"
+#import "GameMetaData.h"
 
 @interface GameViewController ()
 
@@ -57,7 +57,7 @@
 }
 
 // TODO: kolla upp smidigaste sättet att sätta upp spelplanens data. Jag kan tänkte göra det i
-- (void)setGameMetaData:(Game *)gameMetaData
+- (void)setGameMetaData:(GameMetaData *)gameMetaData
 {
 	_gameMetaData = gameMetaData;
 	_letterBag = [[LetterBag alloc] initWithLanguage:_gameMetaData.language 

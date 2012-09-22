@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class LetterBag;
-@class Game;
+@class GameMetaData;
 
 @interface GameViewController : UIViewController {
 }
 
 @property (nonatomic, strong) NSMutableArray *playerArray;
 @property (nonatomic, strong) LetterBag *letterBag;
-@property (nonatomic, strong) Game *gameMetaData;
+@property (nonatomic, strong) GameMetaData *gameMetaData;
 
 @end

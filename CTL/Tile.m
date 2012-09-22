@@ -8,9 +8,11 @@
 
 #import "Tile.h"
 #import "TileView.h"
+#import "Letter.h"
 
 @implementation Tile
 
 @synthesize tileView = _tileView;
+@synthesize letter = _letter;
 
 @end

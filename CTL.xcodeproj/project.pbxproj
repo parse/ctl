@@ -26,7 +26,7 @@
 		7590453915E6BB9F005DC5BC /* AlphabetFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590453815E6BB9F005DC5BC /* AlphabetFactory.m */; };
 		75ACB68015E6B03D00985EA6 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB67F15E6B03D00985EA6 /* Player.m */; };
 		75ACB68315E6B06B00985EA6 /* PlayerGameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB68215E6B06B00985EA6 /* PlayerGameData.m */; };
-		75ACB68615E6B0BB00985EA6 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB68515E6B0BB00985EA6 /* Game.m */; };
+		75ACB68615E6B0BB00985EA6 /* GameMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB68515E6B0BB00985EA6 /* GameMetaData.m */; };
 		75ACB68915E6B10D00985EA6 /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB68815E6B10D00985EA6 /* Tile.m */; };
 		75ACB68C15E6B1E000985EA6 /* Letter.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB68B15E6B1E000985EA6 /* Letter.m */; };
 		75ACB68E15E6B29300985EA6 /* TileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75ACB68D15E6B29300985EA6 /* TileView.xib */; };
@@ -71,8 +71,8 @@
 		75ACB67F15E6B03D00985EA6 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		75ACB68115E6B06B00985EA6 /* PlayerGameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGameData.h; sourceTree = "<group>"; };
 		75ACB68215E6B06B00985EA6 /* PlayerGameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerGameData.m; sourceTree = "<group>"; };
-		75ACB68415E6B0BB00985EA6 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		75ACB68515E6B0BB00985EA6 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		75ACB68415E6B0BB00985EA6 /* GameMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMetaData.h; sourceTree = "<group>"; };
+		75ACB68515E6B0BB00985EA6 /* GameMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMetaData.m; sourceTree = "<group>"; };
 		75ACB68715E6B10D00985EA6 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
 		75ACB68815E6B10D00985EA6 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
 		75ACB68A15E6B1E000985EA6 /* Letter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Letter.h; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 			children = (
 				7590453715E6BB9F005DC5BC /* AlphabetFactory.h */,
 				7590453815E6BB9F005DC5BC /* AlphabetFactory.m */,
-				75ACB68415E6B0BB00985EA6 /* Game.h */,
-				75ACB68515E6B0BB00985EA6 /* Game.m */,
+				75ACB68415E6B0BB00985EA6 /* GameMetaData.h */,
+				75ACB68515E6B0BB00985EA6 /* GameMetaData.m */,
 				75ACB68A15E6B1E000985EA6 /* Letter.h */,
 				75ACB68B15E6B1E000985EA6 /* Letter.m */,
 				7590453415E6B913005DC5BC /* LetterBag.h */,
@@ -297,7 +297,7 @@
 				752C0ED415E6AAA8009169FE /* InfoViewController.m in Sources */,
 				75ACB68015E6B03D00985EA6 /* Player.m in Sources */,
 				75ACB68315E6B06B00985EA6 /* PlayerGameData.m in Sources */,
-				75ACB68615E6B0BB00985EA6 /* Game.m in Sources */,
+				75ACB68615E6B0BB00985EA6 /* GameMetaData.m in Sources */,
 				75ACB68915E6B10D00985EA6 /* Tile.m in Sources */,
 				75ACB68C15E6B1E000985EA6 /* Letter.m in Sources */,
 				75ACB69115E6B2AC00985EA6 /* TileView.m in Sources */,

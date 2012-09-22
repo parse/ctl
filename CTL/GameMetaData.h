@@ -11,7 +11,7 @@
 @class LetterBag;
 @class PlayerGameData;
 
-@interface Game : NSObject
+@interface GameMetaData : NSObject
 
 @property (nonatomic) BOOL isServer;
 @property (nonatomic, strong) LetterBag *letterBag;

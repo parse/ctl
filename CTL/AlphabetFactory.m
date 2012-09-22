@@ -16,7 +16,7 @@
 	if ([language isEqualToString:SWEDISH]) {
 		// TODO: lägg till resten av bokstäverna...
 		return [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"X", @"Y", @"Z", @"Å", @"Ä", @"Ö", nil];
-	} else if ([language isEqualToString:ENGLISH_US]) {
+	} else if ([language isEqualToString:ENGLISH]) {
 		// TODO: lägg till resten av bokstäverna...
 		return [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
 	}
