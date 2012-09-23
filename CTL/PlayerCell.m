@@ -32,6 +32,7 @@
     CGSize mainViewSize = view.bounds.size;
     CGFloat borderWidth = 1;
     UIColor *borderColor = [UIColor whiteColor];
+    
     if (borderLeft) {
         UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, borderWidth, mainViewSize.height)];
         leftView.opaque = YES;

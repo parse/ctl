@@ -142,6 +142,7 @@ board::State random_board() {
     UITouch *touch = [touches anyObject];
     CGPoint currentTouchPosition = [touch locationInView:_gameTableView];
     NSIndexPath *indexPath = [_gameTableView indexPathForRowAtPoint: currentTouchPosition];
+    
     if (indexPath != nil) {
         NSInteger buttonIndex;
         
