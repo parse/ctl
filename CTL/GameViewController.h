@@ -11,11 +11,11 @@
 @class LetterBag;
 @class Game;
 
-@interface GameViewController : UIViewController {
-}
+@interface GameViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) IBOutlet UITableView *gameTableView;
 @property (nonatomic, strong) NSMutableArray *playerArray;
 @property (nonatomic, strong) LetterBag *letterBag;
-@property (nonatomic, strong) Game *gameMetaData;
+@property (nonatomic, strong) Game *game;
 
 @end

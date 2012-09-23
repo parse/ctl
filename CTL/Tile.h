@@ -8,12 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class TileView;
 @class Letter;
 
 @interface Tile : NSObject
 
-@property (nonatomic, strong) TileView *tileView;
 @property (nonatomic, strong) Letter *letter;
 
 @end

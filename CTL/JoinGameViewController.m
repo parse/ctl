@@ -9,7 +9,7 @@
 #import "JoinGameViewController.h"
 #import "GameViewController.h"
 #import "SegueDefines.h"
-#import "GameMetaData.h"
+#import "Game.h"
 
 @interface JoinGameViewController ()
 

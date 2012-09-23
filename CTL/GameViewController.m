@@ -20,6 +20,9 @@
 #import "LetterBag.h"
 #import "Letter.h"
 #import "Game.h"
+#import "CurrentConstructedWordCell.h"
+#import "PlayerCell.h"
+#import "ProgressBarCell.h"
 
 @interface GameViewController ()
 
@@ -29,14 +32,20 @@
 
 @synthesize playerArray = _playerArray;
 @synthesize letterBag = _letterBag;
-@synthesize gameMetaData = _gameMetaData;
-
+@synthesize game = _game;
+@synthesize gameTableView = _gameTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        UINib *constructedWordNib = [UINib nibWithNibName:@"CurrentConstructedWordCell" bundle:nil];
+        UINib *playerCellNib = [UINib nibWithNibName:@"PlayerCell" bundle:nil];
+        UINib *progressBarCell = [UINib nibWithNibName:@"ProgressBarCell" bundle:nil];
         
+        [_gameTableView registerNib:constructedWordNib forCellReuseIdentifier:@"currentConstructedWord"];
+        [_gameTableView registerNib:playerCellNib forCellReuseIdentifier:@"player"];
+        [_gameTableView registerNib:progressBarCell forCellReuseIdentifier:@"progressBar"];
         //Skapa viewn programmatiskt, en rad per spelare
 
         // Custom initialization
@@ -57,17 +66,68 @@
     // Release any retained subviews of the main view.
 }
 
-// TODO: kolla upp smidigaste sättet att sätta upp spelplanens data. Jag kan tänkte göra det i
-- (void)setGameMetaData:(Game *)gameMetaData
+// TODO: kolla upp smidigaste sättet att sätta upp spelplanens data.
+- (void)setGame:(Game *)game
 {
-	_gameMetaData = gameMetaData;
-	_letterBag = [[LetterBag alloc] initWithLanguage:_gameMetaData.language 
+	_game = game;
+	_letterBag = [[LetterBag alloc] initWithLanguage:_game.language
 									 numberOfPlayers:_playerArray.count];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+- (void)setUpConstructedWordCell:(CurrentConstructedWordCell *)cell
+{
+    // Todo: set up cell
+}
+
+- (void)setUpProgressBarCell:(ProgressBarCell *)cell
+{
+    // Todo: set up cell
+}
+
+- (void)setUpPlayerCell:(PlayerCell *)cell
+{
+    // Todo: set up cell
+}
+
+
+#pragma mark - Table View Delegate/Datasource Methods
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *currentConstructedWordIdentifier = @"currentConstructedWord";
+    static NSString *PlayerCellIdentifier = @"PlayerCell";
+    static NSString *progressBarIdentifier = @"progressBar";
+    
+    UITableViewCell *cell;
+    
+    if (indexPath.row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:currentConstructedWordIdentifier];
+        [self setUpConstructedWordCell:(CurrentConstructedWordCell *)cell];
+    } else if (indexPath.row == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:progressBarIdentifier];
+        [self setUpProgressBarCell:(ProgressBarCell *)cell];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier];
+        [self setUpPlayerCell:(PlayerCell *)cell];
+    }
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // the number of players, + 1 for the current constructed word cell, + 1 for the progress bar.
+    return _playerArray.count + 2;
 }
 
 @end

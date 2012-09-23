@@ -15,16 +15,16 @@
 @synthesize isServer = _isServer;
 @synthesize letterBag = _letterBag;
 @synthesize playerGameDataArray = _playerGameDataArray;
+@synthesize currentConstructedWord = _currentConstructedWord;
 @synthesize language = _language;
 
 - (id)initWithPlayers
 {
 	if (self = [super init]) {
         
-        return self;
 	}
     
-    return nil;
+    return self;
 }
 
 @end
