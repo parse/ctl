@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerInfoView : UIView {
+@interface PlayerInfoViewController : UIViewController {
 	IBOutlet UIImageView *thumbnailImageView;
 	IBOutlet UILabel *currentScoreLabel;
 	IBOutlet UILabel *futureScoreLabel;

@@ -184,9 +184,9 @@
 						<int key="objectID">3</int>
 						<reference key="object" ref="912944353"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="947210440"/>
 							<reference ref="299983567"/>
 							<reference ref="225584657"/>
+							<reference ref="947210440"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -211,7 +211,7 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="3.CustomClassName">PlayerInfoView</string>
+				<string key="3.CustomClassName">PlayerInfoViewController</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

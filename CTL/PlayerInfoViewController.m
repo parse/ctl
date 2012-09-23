@@ -6,19 +6,19 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PlayerInfoView.h"
+#import "PlayerInfoViewController.h"
 
-@implementation PlayerInfoView
+@implementation PlayerInfoViewController
 
 @synthesize currentScore = _currentScore;
 @synthesize futureScore = _futureScore;
 @synthesize thumbnailImage = _thumbnailImage;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Initialization code
+        // Custom initialization
     }
     return self;
 }
