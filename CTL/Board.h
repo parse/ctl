@@ -47,8 +47,8 @@ namespace board {
 	char* letter(Allocator& allocator, const State& state, Player player, unsigned letter);
 	char* word(Allocator& allocator, const State& state, Player player);
 	
-	char* set_letter(const State& state, Player player, unsigned letter);
-	char* set_word(const State& state, Player player);
+	void set_letter(State& state, Player player, unsigned letter, const char* to);
+	void set_word(State& state, Player player, const char* to);
 	
 	inline Score score(const State& state, Player player);
 }

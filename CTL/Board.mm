@@ -39,18 +39,20 @@ namespace {
 			codepoint = (static_cast<int>(c&0x1F)<<6) | static_cast<int>(d&0x3F);
 			return utf8 + 2;
 		} else if ((c&0xF0)==0xE0) {
-			const char *d = utf8 + 1;
-			Assert(((d[0]&0xC0)==0x80) && ((d[1]&0xC0)==0x80), "Archive not utf-8 encoded %s", utf8);
-			codepoint = (static_cast<int>(c&0x0f)<<12) | (static_cast<int>(d[0]&0x3f)<<6) |
-			static_cast<int>(d[1]&0x3f);
-			return utf8 + 3;
+			Assert(false, "Only two-byte unicode codepoints are supported.");
+			//const char *d = utf8 + 1;
+			//Assert(((d[0]&0xC0)==0x80) && ((d[1]&0xC0)==0x80), "Archive not utf-8 encoded %s", utf8);
+			//codepoint = (static_cast<int>(c&0x0f)<<12) | (static_cast<int>(d[0]&0x3f)<<6) |
+			//static_cast<int>(d[1]&0x3f);
+			//return utf8 + 3;
 		} else if ((c&0xf8)==0xf0) {
-			const char *d = utf8 + 1;
-			Assert(((d[0]&0xc0)==0x80) && ((d[1]&0xc0)==0x80) &&
-					  ((d[2]&0xc0)==0x80), "Archive not utf-8 encoded %s", utf8);
-			codepoint = (static_cast<int>(c&0x07)<<18) | (static_cast<int>(d[0]&0x3f)<<12) |
-			(static_cast<int>(d[1]&0x3f)<<6) | static_cast<int>(d[2]&0x3f);
-			return utf8 + 4;
+			Assert(false, "Only two-byte unicode codepoints are supported.");
+			//const char *d = utf8 + 1;
+			//Assert(((d[0]&0xc0)==0x80) && ((d[1]&0xc0)==0x80) &&
+			//		  ((d[2]&0xc0)==0x80), "Archive not utf-8 encoded %s", utf8);
+			//codepoint = (static_cast<int>(c&0x07)<<18) | (static_cast<int>(d[0]&0x3f)<<12) |
+			//(static_cast<int>(d[1]&0x3f)<<6) | static_cast<int>(d[2]&0x3f);
+			//return utf8 + 4;
 		} else {
 			Assert(false, "Archive not utf-8 encoded %s", utf8);
 			return utf8;
