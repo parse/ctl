@@ -100,8 +100,8 @@ board::State random_board() {
         
         // Player 1
         Player *p1 = [[Player alloc] init];
-        p1.peerID = @"p1";
-        p1.name = @"p1";
+        p1.peerID = [NSString stringWithFormat:@"Player %d", p];
+        p1.name = [NSString stringWithFormat:@"Player %d", p];
         
         PlayerGameData *p1_gamedata = [[PlayerGameData alloc] init];
         p1_gamedata.player = p1;
@@ -132,6 +132,45 @@ board::State random_board() {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - Game events
+- (void)checkButtonTapped:(id)sender event:(id)event
+{
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint currentTouchPosition = [touch locationInView:_gameTableView];
+    NSIndexPath *indexPath = [_gameTableView indexPathForRowAtPoint: currentTouchPosition];
+    if (indexPath != nil) {
+        NSInteger buttonIndex;
+        
+        // TODO: This is a quick and dirty way of doing it
+        if (currentTouchPosition.x > 0 && currentTouchPosition.x <= 53) {
+            buttonIndex = 0;
+        } else if (currentTouchPosition.x > (53*1) && currentTouchPosition.x <= (53*2) ) {
+            buttonIndex = 1;
+        } else if (currentTouchPosition.x > (53*2) && currentTouchPosition.x <= (53*3)) {
+            buttonIndex = 2;
+        } else if (currentTouchPosition.x > (53*3) && currentTouchPosition.x <= (53*4)) {
+            buttonIndex = 3;
+        } else if (currentTouchPosition.x > (53*4) && currentTouchPosition.x <= (53*5)) {
+            buttonIndex = 4;
+        } else if (currentTouchPosition.x > (53*5) && currentTouchPosition.x <= (53*6)) {
+            buttonIndex = 5;
+        }
+        
+        // Find associated Player and Tile
+        PlayerGameData *pressedPlayer = [_playerArray objectAtIndex:indexPath.row-2]; //-2 because we have progress bar and chosen letters
+        Tile *t = (Tile *)[pressedPlayer.tileArray objectAtIndex:buttonIndex];
+
+        // Change background colour of button
+        UIButton *butt = (UIButton *)sender;
+        [butt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        butt.backgroundColor = [UIColor whiteColor];
+        
+        NSString *chosenLetter = t.letter.character;
+        NSLog(@"Letter chosen: %@ from player %@", chosenLetter, pressedPlayer.player.name);
+    }
+}
+
 #pragma mark - Table View Configure Cells
 - (void)setUpConstructedWordCell:(CurrentConstructedWordCell *)cell
 {
@@ -139,10 +178,8 @@ board::State random_board() {
         
     for (NSInteger i = 1; i < 7; i++) {
         butt = (UIButton *)[cell viewWithTag:i];
-        
-        [butt.titleLabel setText:@"A"];
+        [butt setTitle:@"A" forState:UIControlStateNormal];
     }
-
 }
 
 - (void)setUpProgressBarCell:(ProgressBarCell *)cell
@@ -162,11 +199,13 @@ board::State random_board() {
         
         t = [player.tileArray objectAtIndex:i-1];
         
-        [butt.titleLabel setText:t.letter.character];
+        //[butt.titleLabel setText:t.letter.character];
+        [butt setTitle:t.letter.character forState:UIControlStateNormal];
         [butt.titleLabel setTextAlignment: UITextAlignmentCenter];
+        [butt addTarget:self action:@selector(checkButtonTapped:event:) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    PlayerInfoViewController *playerInfoView = (PlayerInfoViewController *)[cell viewWithTag:6];
+    //PlayerInfoViewController *playerInfoView = (PlayerInfoViewController *)[cell viewWithTag:6];
     
     //[playerInfoView setThumbnailImage: [UIImage imageNamed:@"ctl-logotype.png"]];
     //[playerInfoView setCurrentScore:[NSNumber numberWithInt:1]];
