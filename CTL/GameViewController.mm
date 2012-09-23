@@ -31,6 +31,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #include <stdlib.h>
+
 board::State random_board() {
 	board::State board = {0};
 	board.num_players = 5;
@@ -50,7 +51,9 @@ board::State random_board() {
 
 @end
 
-@implementation GameViewController
+@implementation GameViewController {
+    board::State currentBoard;
+}
 
 @synthesize playerArray = _playerArray;
 @synthesize letterBag = _letterBag;
@@ -80,12 +83,12 @@ board::State random_board() {
     [_gameTableView registerNib:playerCellNib forCellReuseIdentifier:@"player"];
     [_gameTableView registerNib:progressBarCell forCellReuseIdentifier:@"progressBar"];
 
-	board::State board = random_board();
+	currentBoard = random_board();
 	
     //Skapa viewn programmatiskt, en rad per spelare
     _playerArray = [[NSMutableArray alloc] init];
 
-    for (unsigned p = 0; p != board.num_players; ++p) {
+    for (unsigned p = 0; p != currentBoard.num_players; ++p) {
 		board::TempAllocator128 ta;
 		NSMutableArray* tiles = [[NSMutableArray alloc] init];
 		
@@ -93,7 +96,7 @@ board::State random_board() {
 		
 		for (unsigned l = 0; l != board::NUM_LETTERS; ++l) {
 			Letter *letter = [[Letter alloc] init];
-			letter.character = [NSString stringWithUTF8String:board::letter(ta, board, p, l)];
+			letter.character = [NSString stringWithUTF8String:board::letter(ta, currentBoard, p, l)];
 			letter.points = [NSNumber numberWithInt:1];
 			
 			Tile *tile = [[Tile alloc] init];
@@ -136,7 +139,12 @@ board::State random_board() {
 }
 
 #pragma mark - Game events
-- (void)checkButtonTapped:(id)sender event:(id)event
+
+/**
+ * Handle pressed character button events
+ *
+ */
+- (void)playerCharacterButtonPressed:(id)sender event:(id)event
 {
     NSSet *touches = [event allTouches];
     UITouch *touch = [touches anyObject];
@@ -146,7 +154,7 @@ board::State random_board() {
     if (indexPath != nil) {
         NSInteger buttonIndex;
         
-        // TODO: This is a quick and dirty way of doing it
+        // TODO: This is a quick and dirty way of doing it, fix me soon
         if (currentTouchPosition.x > 0 && currentTouchPosition.x <= 53) {
             buttonIndex = 0;
         } else if (currentTouchPosition.x > (53*1) && currentTouchPosition.x <= (53*2) ) {
@@ -162,51 +170,108 @@ board::State random_board() {
         }
         
         // Find associated Player and Tile
-        PlayerGameData *pressedPlayer = [_playerArray objectAtIndex:indexPath.row-2]; //-2 because we have progress bar and chosen letters
+        NSInteger chosenPlayerIndex = indexPath.row-2;
+        
+        PlayerGameData *pressedPlayer = [_playerArray objectAtIndex:chosenPlayerIndex]; //-2 because we have progress bar and chosen letters
         Tile *t = (Tile *)[pressedPlayer.tileArray objectAtIndex:buttonIndex];
 
         // Change background colour of button
-        UIButton *butt = (UIButton *)sender;
-        [butt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        butt.backgroundColor = [UIColor whiteColor];
+        UIButton *characterButton = (UIButton *)sender;
+        characterButton.backgroundColor = [UIColor redColor];
         
         NSString *chosenLetter = t.letter.character;
-        NSLog(@"Letter chosen: %@ from player %@", chosenLetter, pressedPlayer.player.name);
+        NSLog(@"Letter %@ chosen from %@ (PlayerIndex %d)", chosenLetter, pressedPlayer.player.name, chosenPlayerIndex);
+        
+        // TODO: Fix call
+        //board::set_letter(currentBoard, chosenPlayerIndex, buttonIndex, t.letter.character);
     }
 }
 
+/**
+ * Handle pressed button in constructed word area
+ *
+ */
+- (void)constructedWordCharacterButtonPressed:(id)sender event:(id)event
+{
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint currentTouchPosition = [touch locationInView:_gameTableView];
+    NSIndexPath *indexPath = [_gameTableView indexPathForRowAtPoint: currentTouchPosition];
+    
+    if (indexPath != nil) {
+        NSInteger buttonIndex;
+        
+        // TODO: This is a quick and dirty way of doing it, fix me soon
+        if (currentTouchPosition.x > 0 && currentTouchPosition.x <= 53) {
+            buttonIndex = 0;
+        } else if (currentTouchPosition.x > (53*1) && currentTouchPosition.x <= (53*2) ) {
+            buttonIndex = 1;
+        } else if (currentTouchPosition.x > (53*2) && currentTouchPosition.x <= (53*3)) {
+            buttonIndex = 2;
+        } else if (currentTouchPosition.x > (53*3) && currentTouchPosition.x <= (53*4)) {
+            buttonIndex = 3;
+        } else if (currentTouchPosition.x > (53*4) && currentTouchPosition.x <= (53*5)) {
+            buttonIndex = 4;
+        } else if (currentTouchPosition.x > (53*5) && currentTouchPosition.x <= (53*6)) {
+            buttonIndex = 5;
+        } else if (currentTouchPosition.x > (53*6) && currentTouchPosition.x <= (53*7)) {
+            buttonIndex = 6;
+        }
+
+        NSLog(@"Letter at index %d to be removed from constructed word array", buttonIndex);
+        
+        // TODO: Fix and implement
+        //board::remove_letter(currentBoard, buttonIndex);
+    }
+}
+
+
 #pragma mark - Table View Configure Cells
+
+/**
+ * Configure the top cell with the user-chosen letters
+ *
+ */
 - (void)setUpConstructedWordCell:(CurrentConstructedWordCell *)cell
 {
     UIButton *butt;
         
     for (NSInteger i = 1; i < 7; i++) {
         butt = (UIButton *)[cell viewWithTag:i];
-        [butt setTitle:@"A" forState:UIControlStateNormal];
+        [butt setTitle:@"" forState:UIControlStateNormal];
+        [butt addTarget:self action:@selector(constructedWordCharacterButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
+
     }
 }
 
+/**
+ * Configure the progress bar cell
+ *
+ */
 - (void)setUpProgressBarCell:(ProgressBarCell *)cell
 {
     // TODO: Setup cell
 }
 
+/**
+ * Configure each player cell consisting of user info and generated characters
+ *
+ */
 - (void)setUpPlayerCell:(PlayerCell *)cell indexPath:(NSIndexPath *)indexPath
 {
-    UIButton *butt;
+    UIButton *characterButton;
     PlayerGameData *player = [_playerArray objectAtIndex:indexPath.row-2];
 
     Tile *t;
     
     for (NSInteger i = 1; i < 6; i++) {
-        butt = (UIButton *)[cell viewWithTag:i];
+        characterButton = (UIButton *)[cell viewWithTag:i];
         
         t = [player.tileArray objectAtIndex:i-1];
         
-        //[butt.titleLabel setText:t.letter.character];
-        [butt setTitle:t.letter.character forState:UIControlStateNormal];
-        [butt.titleLabel setTextAlignment: UITextAlignmentCenter];
-        [butt addTarget:self action:@selector(checkButtonTapped:event:) forControlEvents:UIControlEventTouchUpInside];
+        [characterButton setTitle:t.letter.character forState:UIControlStateNormal];
+        [characterButton.titleLabel setTextAlignment: UITextAlignmentCenter];
+        [characterButton addTarget:self action:@selector(playerCharacterButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     //PlayerInfoViewController *playerInfoView = (PlayerInfoViewController *)[cell viewWithTag:6];
