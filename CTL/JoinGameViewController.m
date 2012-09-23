@@ -9,6 +9,7 @@
 #import "JoinGameViewController.h"
 #import "GameViewController.h"
 #import "SegueDefines.h"
+#import "GameMetaData.h"
 
 @interface JoinGameViewController ()
 
@@ -30,6 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+  //  GameMetaData *game1 =
+    
 	// Do any additional setup after loading the view.
 }
 

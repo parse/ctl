@@ -19,7 +19,7 @@
 #import "GameViewController.h"
 #import "LetterBag.h"
 #import "Letter.h"
-#import "GameMetaData.h"
+#import "Game.h"
 
 @interface GameViewController ()
 
@@ -36,6 +36,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         //Skapa viewn programmatiskt, en rad per spelare
 
         // Custom initialization
@@ -57,7 +58,7 @@
 }
 
 // TODO: kolla upp smidigaste sättet att sätta upp spelplanens data. Jag kan tänkte göra det i
-- (void)setGameMetaData:(GameMetaData *)gameMetaData
+- (void)setGameMetaData:(Game *)gameMetaData
 {
 	_gameMetaData = gameMetaData;
 	_letterBag = [[LetterBag alloc] initWithLanguage:_gameMetaData.language 

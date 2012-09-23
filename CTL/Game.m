@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameMetaData.h"
+#import "Game.h"
 #import "LetterBag.h"
 #import "Letter.h"
 
-@implementation GameMetaData
+@implementation Game
 
 @synthesize isServer = _isServer;
 @synthesize letterBag = _letterBag;

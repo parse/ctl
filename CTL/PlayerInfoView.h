@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerCellView : UIView {
+@interface PlayerInfoView : UIView {
 	IBOutlet UIImageView *thumbnailImageView;
 	IBOutlet UILabel *currentScoreLabel;
-	IBOutlet UILabel *futureScoreLabel;	
+	IBOutlet UILabel *futureScoreLabel;
 }
 
 @property (nonatomic, strong) UIImage *thumbnailImage;
