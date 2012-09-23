@@ -155,20 +155,12 @@ board::State random_board() {
         NSInteger buttonIndex;
         
         // TODO: This is a quick and dirty way of doing it, fix me soon
-        if (currentTouchPosition.x > 0 && currentTouchPosition.x <= 53) {
-            buttonIndex = 0;
-        } else if (currentTouchPosition.x > (53*1) && currentTouchPosition.x <= (53*2) ) {
-            buttonIndex = 1;
-        } else if (currentTouchPosition.x > (53*2) && currentTouchPosition.x <= (53*3)) {
-            buttonIndex = 2;
-        } else if (currentTouchPosition.x > (53*3) && currentTouchPosition.x <= (53*4)) {
-            buttonIndex = 3;
-        } else if (currentTouchPosition.x > (53*4) && currentTouchPosition.x <= (53*5)) {
-            buttonIndex = 4;
-        } else if (currentTouchPosition.x > (53*5) && currentTouchPosition.x <= (53*6)) {
-            buttonIndex = 5;
+        for (NSInteger i=0; i<=5; i++) {
+            if (currentTouchPosition.x > 53*i && currentTouchPosition.x <= 53*(i+1)) {
+                buttonIndex = i;
+            }
         }
-        
+                
         // Find associated Player and Tile
         NSInteger chosenPlayerIndex = indexPath.row-2; //-2 is because we have a progress bar and chosen letters cell
         
@@ -202,20 +194,10 @@ board::State random_board() {
         NSInteger buttonIndex;
         
         // TODO: This is a quick and dirty way of doing it, fix me soon
-        if (currentTouchPosition.x > 0 && currentTouchPosition.x <= 53) {
-            buttonIndex = 0;
-        } else if (currentTouchPosition.x > (53*1) && currentTouchPosition.x <= (53*2) ) {
-            buttonIndex = 1;
-        } else if (currentTouchPosition.x > (53*2) && currentTouchPosition.x <= (53*3)) {
-            buttonIndex = 2;
-        } else if (currentTouchPosition.x > (53*3) && currentTouchPosition.x <= (53*4)) {
-            buttonIndex = 3;
-        } else if (currentTouchPosition.x > (53*4) && currentTouchPosition.x <= (53*5)) {
-            buttonIndex = 4;
-        } else if (currentTouchPosition.x > (53*5) && currentTouchPosition.x <= (53*6)) {
-            buttonIndex = 5;
-        } else if (currentTouchPosition.x > (53*6) && currentTouchPosition.x <= (53*7)) {
-            buttonIndex = 6;
+        for (NSInteger i=0; i<=6; i++) {
+            if (currentTouchPosition.x > 53*i && currentTouchPosition.x <= 53*(i+1)) {
+                buttonIndex = i;
+            }
         }
 
         NSLog(@"Letter at index %d to be removed from constructed word array", buttonIndex);
