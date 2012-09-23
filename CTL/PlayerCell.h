@@ -10,4 +10,7 @@
 
 @interface PlayerCell : UITableViewCell
 
++ (void)setupStylesForCell:(UIView *)view borderLeft:(BOOL)borderLeft;
+
+
 @end

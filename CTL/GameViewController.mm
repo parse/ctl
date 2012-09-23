@@ -25,7 +25,7 @@
 #import "ProgressBarCell.h"
 #import "Player.h"
 #import "PlayerGameData.h"
-#import "PlayerInfoView.h"
+#import "PlayerInfoViewController.h"
 #import "Tile.h"
 #import "Board.h"
 #import <QuartzCore/QuartzCore.h>
@@ -166,23 +166,27 @@ board::State random_board() {
         [butt.titleLabel setTextAlignment: UITextAlignmentCenter];
     }
     
-    PlayerInfoView *playerInfoView = (PlayerInfoView *)[cell viewWithTag:6];
-    /*
-    [playerInfoView setThumbnailImage: [UIImage imageNamed:@"ctl-logotype.png"]];
-    [playerInfoView setCurrentScore:[NSNumber numberWithInt:1]];
-    [playerInfoView setFutureScore:[NSNumber numberWithInt:1]];
-     */
+    PlayerInfoViewController *playerInfoView = (PlayerInfoViewController *)[cell viewWithTag:6];
+    
+    //[playerInfoView setThumbnailImage: [UIImage imageNamed:@"ctl-logotype.png"]];
+    //[playerInfoView setCurrentScore:[NSNumber numberWithInt:1]];
+    //[playerInfoView setFutureScore:[NSNumber numberWithInt:1]];
+     
 }
 
 #pragma mark - Table View Delegate/Datasource Methods
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        return 53;
-    } else if (indexPath.row == 1) {
-        return 25.0;
-    } else {
-        return 60;
+    switch (indexPath.row) {
+        case 0:
+            return 53;
+            break;
+        case 1:
+            return 25;
+            break;
+        default:
+            return 60;
+            break;
     }
 }
 
@@ -204,7 +208,7 @@ board::State random_board() {
         cell = (PlayerCell *)[tableView dequeueReusableCellWithIdentifier:playerCellIdentifier];
         [self setUpPlayerCell:(PlayerCell *)cell indexPath:indexPath];
     }
-    NSLog(@"Cell: %@", cell);
+
     return cell;
 }
 

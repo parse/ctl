@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @class Player;
-@class PlayerInfoView;
+@class PlayerInfoViewController;
 
 @interface PlayerGameData : NSObject
 
 @property (nonatomic) NSInteger score;
 @property (nonatomic, strong) Player *player;
 @property (nonatomic, strong) NSMutableArray *tileArray;
-@property (nonatomic, strong) PlayerInfoView *playerCell;
+@property (nonatomic, strong) PlayerInfoViewController *playerCell;
 
 
 @end

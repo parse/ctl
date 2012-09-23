@@ -7,7 +7,7 @@
 //
 
 #import "PlayerCell.h"
-#import "PlayerInfoView.h"
+#import "PlayerInfoViewController.h"
 
 @implementation PlayerCell
 
@@ -27,7 +27,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setupStylesForCell:(UIView *)view borderLeft:(BOOL)borderLeft
++ (void)setupStylesForCell:(UIView *)view borderLeft:(BOOL)borderLeft
 {
     CGSize mainViewSize = view.bounds.size;
     CGFloat borderWidth = 1;
@@ -69,12 +69,12 @@
     UIFont *f = [UIFont fontWithName:@"Visitor TT1 BRK" size:45];
     
     for (NSInteger i = 1; i<=6; i++) {
-        view = (UIButton *)[self viewWithTag:i];
+        view = (UIView *)[self viewWithTag:i];
         
         if (i != 1) {
-            [self setupStylesForCell:view borderLeft:YES];
+            [PlayerCell setupStylesForCell:view borderLeft:YES];
         } else {
-            [self setupStylesForCell:view borderLeft:NO];
+            [PlayerCell setupStylesForCell:view borderLeft:NO];
         }
 
         if (i != 6) {
@@ -82,12 +82,14 @@
             [[button titleLabel] setFont:f];
         } else {
             /*
-            PlayerInfoView *playerInfoView = [[PlayerInfoView alloc] initWithFrame:view.frame];
-            playerInfoView = [[[NSBundle mainBundle] loadNibNamed:@"PlayerInfoView" owner:playerInfoView options:nil] objectAtIndex:0]; //[[PlayerInfoView alloc] initWithFrame:view.frame];
+            // Initiate and setup carousel
+            PlayerInfoViewController *playerInfoViewController = [[PlayerInfoViewController alloc] init];
+            CGRect orgFrame = view.frame;
+            [playerInfoViewController.view setFrame:orgFrame];
+            [view addSubview:playerInfoViewController.view];
             [view removeFromSuperview];
-            [playerInfoView setTag:6];
-            [self addSubview:playerInfoView];
-             */
+*/
+            
         }
     }
 }

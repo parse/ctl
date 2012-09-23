@@ -22,8 +22,8 @@
 		752C0ECE15E6AA0F009169FE /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ECD15E6AA0F009169FE /* JoinGameViewController.m */; };
 		752C0ED115E6AA1A009169FE /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ED015E6AA1A009169FE /* GameViewController.mm */; };
 		752C0ED415E6AAA8009169FE /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ED315E6AAA8009169FE /* InfoViewController.m */; };
-		7590453015E6B577005DC5BC /* PlayerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590452F15E6B577005DC5BC /* PlayerInfoView.m */; };
-		7590453315E6B58B005DC5BC /* PlayerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7590453215E6B58B005DC5BC /* PlayerInfoView.xib */; };
+		7590453015E6B577005DC5BC /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590452F15E6B577005DC5BC /* PlayerInfoViewController.m */; };
+		7590453315E6B58B005DC5BC /* PlayerInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7590453215E6B58B005DC5BC /* PlayerInfoViewController.xib */; };
 		7590453615E6B913005DC5BC /* LetterBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590453515E6B913005DC5BC /* LetterBag.m */; };
 		7590453915E6BB9F005DC5BC /* AlphabetFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590453815E6BB9F005DC5BC /* AlphabetFactory.m */; };
 		75ACB68015E6B03D00985EA6 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB67F15E6B03D00985EA6 /* Player.m */; };
@@ -34,6 +34,7 @@
 		9A29673C160F18F300DE2471 /* visitor1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29673A160F18F300DE2471 /* visitor1.ttf */; };
 		9A29673D160F18F300DE2471 /* visitor2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29673B160F18F300DE2471 /* visitor2.ttf */; };
 		9A471F88160F291C007106E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A471F87160F291C007106E8 /* QuartzCore.framework */; };
+		9A471F91160F4680007106E8 /* GameLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A471F8F160F467F007106E8 /* GameLobbyViewController.m */; };
 		9A57ED88160347E500AB95F0 /* Packet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57ED87160347E500AB95F0 /* Packet.m */; };
 		9A7ACD98160E137000B316D2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7ACD97160E137000B316D2 /* GameKit.framework */; };
 		9A7ACD9B160E13FB00B316D2 /* GCTurnedMatchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7ACD9A160E13FB00B316D2 /* GCTurnedMatchHelper.m */; };
@@ -80,8 +81,8 @@
 		752C0ED015E6AA1A009169FE /* GameViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameViewController.mm; sourceTree = "<group>"; };
 		752C0ED215E6AAA8009169FE /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		752C0ED315E6AAA8009169FE /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		7590452F15E6B577005DC5BC /* PlayerInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoView.m; sourceTree = "<group>"; };
-		7590453215E6B58B005DC5BC /* PlayerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerInfoView.xib; sourceTree = "<group>"; };
+		7590452F15E6B577005DC5BC /* PlayerInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoViewController.m; sourceTree = "<group>"; };
+		7590453215E6B58B005DC5BC /* PlayerInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerInfoViewController.xib; sourceTree = "<group>"; };
 		7590453415E6B913005DC5BC /* LetterBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterBag.h; sourceTree = "<group>"; };
 		7590453515E6B913005DC5BC /* LetterBag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterBag.m; sourceTree = "<group>"; };
 		7590453715E6BB9F005DC5BC /* AlphabetFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphabetFactory.h; sourceTree = "<group>"; };
@@ -101,6 +102,8 @@
 		9A29673A160F18F300DE2471 /* visitor1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = visitor1.ttf; path = ../Graphic/Fonts/visitor1.ttf; sourceTree = "<group>"; };
 		9A29673B160F18F300DE2471 /* visitor2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = visitor2.ttf; path = ../Graphic/Fonts/visitor2.ttf; sourceTree = "<group>"; };
 		9A471F87160F291C007106E8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9A471F8E160F467F007106E8 /* GameLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLobbyViewController.h; sourceTree = "<group>"; };
+		9A471F8F160F467F007106E8 /* GameLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLobbyViewController.m; sourceTree = "<group>"; };
 		9A57ED86160347E500AB95F0 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
 		9A57ED87160347E500AB95F0 /* Packet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Packet.m; sourceTree = "<group>"; };
 		9A7ACD97160E137000B316D2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -118,7 +121,7 @@
 		9A7ACDB6160F00D800B316D2 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		9A7ACDB7160F00D800B316D2 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		9A7ACDB9160F00E900B316D2 /* PlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
-		9A7ACDBB160F01B800B316D2 /* PlayerInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfoView.h; sourceTree = "<group>"; };
+		9A7ACDBB160F01B800B316D2 /* PlayerInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfoViewController.h; sourceTree = "<group>"; };
 		9A7ACDBC160F077B00B316D2 /* ProgressBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBarCell.h; sourceTree = "<group>"; };
 		9A7ACDBD160F077B00B316D2 /* ProgressBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressBarCell.m; sourceTree = "<group>"; };
 		9A7ACDBF160F079200B316D2 /* ProgressBarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressBarCell.xib; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 		752C0EC015E6A62A009169FE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A7ACDBB160F01B800B316D2 /* PlayerInfoViewController.h */,
+				7590452F15E6B577005DC5BC /* PlayerInfoViewController.m */,
 				752C0EC615E6A9F4009169FE /* MainViewController.h */,
 				752C0EC715E6A9F4009169FE /* MainViewController.m */,
 				752C0EC915E6AA07009169FE /* HostGameViewController.h */,
@@ -238,6 +243,8 @@
 				752C0ED015E6AA1A009169FE /* GameViewController.mm */,
 				752C0ED215E6AAA8009169FE /* InfoViewController.h */,
 				752C0ED315E6AAA8009169FE /* InfoViewController.m */,
+				9A471F8E160F467F007106E8 /* GameLobbyViewController.h */,
+				9A471F8F160F467F007106E8 /* GameLobbyViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -245,9 +252,7 @@
 		752C0EC115E6A62F009169FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A7ACDBB160F01B800B316D2 /* PlayerInfoView.h */,
-				7590452F15E6B577005DC5BC /* PlayerInfoView.m */,
-				7590453215E6B58B005DC5BC /* PlayerInfoView.xib */,
+				7590453215E6B58B005DC5BC /* PlayerInfoViewController.xib */,
 				9A7ACDB0160EFF9800B316D2 /* TableViewCells */,
 			);
 			name = Views;
@@ -374,7 +379,7 @@
 				9A29673D160F18F300DE2471 /* visitor2.ttf in Resources */,
 				752C0EAD15E6A5AA009169FE /* InfoPlist.strings in Resources */,
 				752C0EB615E6A5AA009169FE /* MainStoryboard.storyboard in Resources */,
-				7590453315E6B58B005DC5BC /* PlayerInfoView.xib in Resources */,
+				7590453315E6B58B005DC5BC /* PlayerInfoViewController.xib in Resources */,
 				9A7ACDAA160EFE7500B316D2 /* ctl-logotype.png in Resources */,
 				9A7ACDAB160EFE7500B316D2 /* ctl-logotype@2x.png in Resources */,
 				9A7ACDAC160EFE7500B316D2 /* top_left_menu.png in Resources */,
@@ -408,7 +413,7 @@
 				75ACB68615E6B0BB00985EA6 /* Game.m in Sources */,
 				75ACB68915E6B10D00985EA6 /* Tile.m in Sources */,
 				75ACB68C15E6B1E000985EA6 /* Letter.m in Sources */,
-				7590453015E6B577005DC5BC /* PlayerInfoView.m in Sources */,
+				7590453015E6B577005DC5BC /* PlayerInfoViewController.m in Sources */,
 				7590453615E6B913005DC5BC /* LetterBag.m in Sources */,
 				7590453915E6BB9F005DC5BC /* AlphabetFactory.m in Sources */,
 				9A57ED88160347E500AB95F0 /* Packet.m in Sources */,
@@ -417,6 +422,7 @@
 				9A7ACDB8160F00D800B316D2 /* PlayerCell.m in Sources */,
 				9A7ACDBE160F077C00B316D2 /* ProgressBarCell.m in Sources */,
 				1F88CD08160F39600059CFEB /* Board.mm in Sources */,
+				9A471F91160F4680007106E8 /* GameLobbyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
