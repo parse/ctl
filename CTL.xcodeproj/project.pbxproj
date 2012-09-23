@@ -29,6 +29,9 @@
 		75ACB68615E6B0BB00985EA6 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB68515E6B0BB00985EA6 /* Game.m */; };
 		75ACB68915E6B10D00985EA6 /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB68815E6B10D00985EA6 /* Tile.m */; };
 		75ACB68C15E6B1E000985EA6 /* Letter.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB68B15E6B1E000985EA6 /* Letter.m */; };
+		9A29673C160F18F300DE2471 /* visitor1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29673A160F18F300DE2471 /* visitor1.ttf */; };
+		9A29673D160F18F300DE2471 /* visitor2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29673B160F18F300DE2471 /* visitor2.ttf */; };
+		9A471F88160F291C007106E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A471F87160F291C007106E8 /* QuartzCore.framework */; };
 		9A57ED88160347E500AB95F0 /* Packet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57ED87160347E500AB95F0 /* Packet.m */; };
 		9A7ACD98160E137000B316D2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7ACD97160E137000B316D2 /* GameKit.framework */; };
 		9A7ACD9B160E13FB00B316D2 /* GCTurnedMatchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7ACD9A160E13FB00B316D2 /* GCTurnedMatchHelper.m */; };
@@ -88,6 +91,9 @@
 		75ACB68815E6B10D00985EA6 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
 		75ACB68A15E6B1E000985EA6 /* Letter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Letter.h; sourceTree = "<group>"; };
 		75ACB68B15E6B1E000985EA6 /* Letter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Letter.m; sourceTree = "<group>"; };
+		9A29673A160F18F300DE2471 /* visitor1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = visitor1.ttf; path = ../Graphic/Fonts/visitor1.ttf; sourceTree = "<group>"; };
+		9A29673B160F18F300DE2471 /* visitor2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = visitor2.ttf; path = ../Graphic/Fonts/visitor2.ttf; sourceTree = "<group>"; };
+		9A471F87160F291C007106E8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9A57ED86160347E500AB95F0 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
 		9A57ED87160347E500AB95F0 /* Packet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Packet.m; sourceTree = "<group>"; };
 		9A7ACD97160E137000B316D2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -116,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A471F88160F291C007106E8 /* QuartzCore.framework in Frameworks */,
 				9A7ACD98160E137000B316D2 /* GameKit.framework in Frameworks */,
 				752C0EA315E6A5AA009169FE /* UIKit.framework in Frameworks */,
 				752C0EA515E6A5AA009169FE /* Foundation.framework in Frameworks */,
@@ -129,6 +136,7 @@
 		752C0E9315E6A5A9009169FE = {
 			isa = PBXGroup;
 			children = (
+				9A471F87160F291C007106E8 /* QuartzCore.framework */,
 				9A7ACD97160E137000B316D2 /* GameKit.framework */,
 				752C0EA815E6A5AA009169FE /* CTL */,
 				752C0EA115E6A5AA009169FE /* Frameworks */,
@@ -176,6 +184,7 @@
 		752C0EA915E6A5AA009169FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9A29673F160F18F900DE2471 /* Fonts */,
 				9A7ACD9D160EFD6A00B316D2 /* Images */,
 				752C0EAA15E6A5AA009169FE /* CTL-Info.plist */,
 				752C0EAB15E6A5AA009169FE /* InfoPlist.strings */,
@@ -250,6 +259,15 @@
 				9A57ED87160347E500AB95F0 /* Packet.m */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		9A29673F160F18F900DE2471 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9A29673A160F18F300DE2471 /* visitor1.ttf */,
+				9A29673B160F18F300DE2471 /* visitor2.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		9A7ACD93160E11FF00B316D2 /* Helpers */ = {
@@ -340,6 +358,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A29673C160F18F300DE2471 /* visitor1.ttf in Resources */,
+				9A29673D160F18F300DE2471 /* visitor2.ttf in Resources */,
 				752C0EAD15E6A5AA009169FE /* InfoPlist.strings in Resources */,
 				752C0EB615E6A5AA009169FE /* MainStoryboard.storyboard in Resources */,
 				7590453315E6B58B005DC5BC /* PlayerInfoView.xib in Resources */,

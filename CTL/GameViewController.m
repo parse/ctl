@@ -23,6 +23,11 @@
 #import "CurrentConstructedWordCell.h"
 #import "PlayerCell.h"
 #import "ProgressBarCell.h"
+#import "Player.h"
+#import "PlayerGameData.h"
+#import "PlayerInfoView.h"
+#import "Tile.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GameViewController ()
 
@@ -39,15 +44,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        UINib *constructedWordNib = [UINib nibWithNibName:@"CurrentConstructedWordCell" bundle:nil];
-        UINib *playerCellNib = [UINib nibWithNibName:@"PlayerCell" bundle:nil];
-        UINib *progressBarCell = [UINib nibWithNibName:@"ProgressBarCell" bundle:nil];
         
-        [_gameTableView registerNib:constructedWordNib forCellReuseIdentifier:@"currentConstructedWord"];
-        [_gameTableView registerNib:playerCellNib forCellReuseIdentifier:@"player"];
-        [_gameTableView registerNib:progressBarCell forCellReuseIdentifier:@"progressBar"];
-        //Skapa viewn programmatiskt, en rad per spelare
-
         // Custom initialization
     }
     return self;
@@ -57,7 +54,40 @@
 {
     [super viewDidLoad];
 	
-	// Do any additional setup after loading the view.
+    UINib *constructedWordNib = [UINib nibWithNibName:@"CurrentConstructedWordCell" bundle:nil];
+    UINib *playerCellNib = [UINib nibWithNibName:@"PlayerCell" bundle:nil];
+    UINib *progressBarCell = [UINib nibWithNibName:@"ProgressBarCell" bundle:nil];
+    
+    [_gameTableView registerNib:constructedWordNib forCellReuseIdentifier:@"currentConstructedWord"];
+    [_gameTableView registerNib:playerCellNib forCellReuseIdentifier:@"player"];
+    [_gameTableView registerNib:progressBarCell forCellReuseIdentifier:@"progressBar"];
+
+    //Skapa viewn programmatiskt, en rad per spelare
+    _playerArray = [[NSMutableArray alloc] init];
+    
+    for (NSInteger i = 0; i < 5; i++) {
+        Letter *l = [[Letter alloc] init];
+        l.character = @"A";
+        l.points = [NSNumber numberWithInt:1];
+        
+        Tile *t = [[Tile alloc] init];
+        t.letter = l;
+        
+        NSMutableArray *tileArray = [NSMutableArray arrayWithObjects:t,t,t,t,t, nil];
+        
+        // Player 1
+        Player *p1 = [[Player alloc] init];
+        p1.peerID = @"p1";
+        p1.name = @"p1";
+        
+        PlayerGameData *p1_gamedata = [[PlayerGameData alloc] init];
+        p1_gamedata.player = p1;
+        p1_gamedata.score = 0;
+        p1_gamedata.tileArray = tileArray;
+        [_playerArray addObject:p1_gamedata];
+    }
+        
+    [_gameTableView reloadData];
 }
 
 - (void)viewDidUnload
@@ -79,43 +109,79 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
+#pragma mark - Table View Configure Cells
 - (void)setUpConstructedWordCell:(CurrentConstructedWordCell *)cell
 {
-    // Todo: set up cell
+    UIButton *butt;
+        
+    for (NSInteger i = 1; i < 7; i++) {
+        butt = (UIButton *)[cell viewWithTag:i];
+        
+        [butt.titleLabel setText:@"A"];
+    }
+
 }
 
 - (void)setUpProgressBarCell:(ProgressBarCell *)cell
 {
-    // Todo: set up cell
+    // TODO: Setup cell
 }
 
-- (void)setUpPlayerCell:(PlayerCell *)cell
+- (void)setUpPlayerCell:(PlayerCell *)cell indexPath:(NSIndexPath *)indexPath
 {
-    // Todo: set up cell
-}
+    UIButton *butt;
+    PlayerGameData *player = [_playerArray objectAtIndex:indexPath.row-2];
 
+    Tile *t;
+    
+    for (NSInteger i = 1; i < 6; i++) {
+        butt = (UIButton *)[cell viewWithTag:i];
+        
+        t = [player.tileArray objectAtIndex:i-1];
+        
+        [butt.titleLabel setText:t.letter.character];
+        [butt.titleLabel setTextAlignment: UITextAlignmentCenter];
+    }
+    
+    PlayerInfoView *playerInfoView = (PlayerInfoView *)[cell viewWithTag:6];
+    /*
+    [playerInfoView setThumbnailImage: [UIImage imageNamed:@"ctl-logotype.png"]];
+    [playerInfoView setCurrentScore:[NSNumber numberWithInt:1]];
+    [playerInfoView setFutureScore:[NSNumber numberWithInt:1]];
+     */
+}
 
 #pragma mark - Table View Delegate/Datasource Methods
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 53;
+    } else if (indexPath.row == 1) {
+        return 25.0;
+    } else {
+        return 60;
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *currentConstructedWordIdentifier = @"currentConstructedWord";
-    static NSString *PlayerCellIdentifier = @"PlayerCell";
+    static NSString *playerCellIdentifier = @"player";
     static NSString *progressBarIdentifier = @"progressBar";
     
     UITableViewCell *cell;
     
     if (indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:currentConstructedWordIdentifier];
+        cell = (CurrentConstructedWordCell *)[tableView dequeueReusableCellWithIdentifier:currentConstructedWordIdentifier];
         [self setUpConstructedWordCell:(CurrentConstructedWordCell *)cell];
     } else if (indexPath.row == 1) {
-        cell = [tableView dequeueReusableCellWithIdentifier:progressBarIdentifier];
+        cell = (ProgressBarCell *)[tableView dequeueReusableCellWithIdentifier:progressBarIdentifier];
         [self setUpProgressBarCell:(ProgressBarCell *)cell];
     } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier];
-        [self setUpPlayerCell:(PlayerCell *)cell];
+        cell = (PlayerCell *)[tableView dequeueReusableCellWithIdentifier:playerCellIdentifier];
+        [self setUpPlayerCell:(PlayerCell *)cell indexPath:indexPath];
     }
+    NSLog(@"Cell: %@", cell);
     return cell;
 }
 

@@ -43,16 +43,15 @@
 							<object class="IBUIView" id="104417984">
 								<reference key="NSNextResponder" ref="638091553"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{265, -1}, {53, 53}}</string>
+								<string key="NSFrame">{{265, 0}, {53, 53}}</string>
 								<reference key="NSSuperview" ref="638091553"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC42OTgwMzkyMTU3IDAuMTA1ODgyMzUyOSAwLjEwOTgwMzkyMTYAA</bytes>
 								</object>
-								<int key="IBUITag">5</int>
+								<int key="IBUITag">6</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 							<object class="IBUIButton" id="763865467">
@@ -68,6 +67,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 								</object>
 								<bool key="IBUIOpaque">NO</bool>
+								<int key="IBUITag">1</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
@@ -81,14 +81,12 @@
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC41AA</bytes>
 								</object>
-								<object class="IBUIFontDescription" key="IBUIFontDescription">
-									<string key="name">BodoniSvtyTwoOSITCTT-Bold</string>
-									<string key="family">Bodoni 72 Oldstyle</string>
-									<int key="traits">2</int>
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="281259525">
+									<int key="type">2</int>
 									<double key="pointSize">33</double>
 								</object>
-								<object class="NSFont" key="IBUIFont">
-									<string key="NSName">BodoniSvtyTwoOSITCTT-Bold</string>
+								<object class="NSFont" key="IBUIFont" id="757807985">
+									<string key="NSName">Helvetica-Bold</string>
 									<double key="NSSize">33</double>
 									<int key="NSfFlags">16</int>
 								</object>
@@ -103,7 +101,7 @@
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="209775749"/>
 								<bool key="IBUIOpaque">NO</bool>
-								<int key="IBUITag">1</int>
+								<int key="IBUITag">2</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
@@ -111,15 +109,8 @@
 								<reference key="IBUIHighlightedTitleColor" ref="849270908"/>
 								<reference key="IBUINormalTitleColor" ref="849270908"/>
 								<reference key="IBUINormalTitleShadowColor" ref="879185713"/>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="281259525">
-									<int key="type">2</int>
-									<double key="pointSize">33</double>
-								</object>
-								<object class="NSFont" key="IBUIFont" id="435945058">
-									<string key="NSName">Helvetica-Bold</string>
-									<double key="NSSize">33</double>
-									<int key="NSfFlags">16</int>
-								</object>
+								<reference key="IBUIFontDescription" ref="281259525"/>
+								<reference key="IBUIFont" ref="757807985"/>
 							</object>
 							<object class="IBUIButton" id="987439186">
 								<reference key="NSNextResponder" ref="638091553"/>
@@ -131,7 +122,7 @@
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="209775749"/>
 								<bool key="IBUIOpaque">NO</bool>
-								<int key="IBUITag">2</int>
+								<int key="IBUITag">3</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
@@ -140,7 +131,7 @@
 								<reference key="IBUINormalTitleColor" ref="849270908"/>
 								<reference key="IBUINormalTitleShadowColor" ref="879185713"/>
 								<reference key="IBUIFontDescription" ref="281259525"/>
-								<reference key="IBUIFont" ref="435945058"/>
+								<reference key="IBUIFont" ref="757807985"/>
 							</object>
 							<object class="IBUIButton" id="28026762">
 								<reference key="NSNextResponder" ref="638091553"/>
@@ -152,7 +143,7 @@
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="209775749"/>
 								<bool key="IBUIOpaque">NO</bool>
-								<int key="IBUITag">3</int>
+								<int key="IBUITag">4</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
@@ -161,7 +152,7 @@
 								<reference key="IBUINormalTitleColor" ref="849270908"/>
 								<reference key="IBUINormalTitleShadowColor" ref="879185713"/>
 								<reference key="IBUIFontDescription" ref="281259525"/>
-								<reference key="IBUIFont" ref="435945058"/>
+								<reference key="IBUIFont" ref="757807985"/>
 							</object>
 							<object class="IBUIButton" id="177085295">
 								<reference key="NSNextResponder" ref="638091553"/>
@@ -173,7 +164,7 @@
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="209775749"/>
 								<bool key="IBUIOpaque">NO</bool>
-								<int key="IBUITag">4</int>
+								<int key="IBUITag">5</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
@@ -182,7 +173,7 @@
 								<reference key="IBUINormalTitleColor" ref="849270908"/>
 								<reference key="IBUINormalTitleShadowColor" ref="879185713"/>
 								<reference key="IBUIFontDescription" ref="281259525"/>
-								<reference key="IBUIFont" ref="435945058"/>
+								<reference key="IBUIFont" ref="757807985"/>
 							</object>
 						</array>
 						<string key="NSFrameSize">{318, 52}</string>
@@ -239,11 +230,11 @@
 						<reference key="object" ref="96350283"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="104417984"/>
-							<reference ref="763865467"/>
-							<reference ref="805535629"/>
 							<reference ref="987439186"/>
-							<reference ref="28026762"/>
 							<reference ref="177085295"/>
+							<reference ref="805535629"/>
+							<reference ref="28026762"/>
+							<reference ref="763865467"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -284,7 +275,6 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="10.CustomClassName">PlayerInfoView</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -308,33 +298,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/PlayerCell.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">PlayerInfoView</string>
-					<string key="superclassName">UIView</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="currentScoreLabel">UILabel</string>
-						<string key="futureScoreLabel">UILabel</string>
-						<string key="thumbnailImageView">UIImageView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="currentScoreLabel">
-							<string key="name">currentScoreLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="futureScoreLabel">
-							<string key="name">futureScoreLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="thumbnailImageView">
-							<string key="name">thumbnailImageView</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PlayerInfoView.h</string>
 					</object>
 				</object>
 			</array>
