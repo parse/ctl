@@ -35,9 +35,12 @@ board::State random_board() {
 	board::State board = {0};
 	board.num_players = 5;
 	
+	char buffer[2] = {0};
 	for (unsigned p = 0; p != board.num_players; ++p) {
-		for (unsigned l = 0; l != board::NUM_LETTERS; ++l)
-			board.letters[p][l] = 'A' + (rand() % 24);
+		for (unsigned l = 0; l != board::NUM_LETTERS; ++l) {
+			buffer[0] = 'A' + (rand() % 26);
+			board::set_letter(board, p, l, buffer);
+		}
 	}
 	
 	return board;
