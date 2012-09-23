@@ -39,7 +39,7 @@
         
         // for bonus points, set the views' autoresizing mask so they'll stay with the edges:
         leftView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin;
-        
+
         [view addSubview:leftView];
     }
     

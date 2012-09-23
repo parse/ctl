@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F88CD08160F39600059CFEB /* Board.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F88CD07160F39600059CFEB /* Board.mm */; };
+		1F88CD0C160F4DBB0059CFEB /* Assert.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F88CD0B160F48820059CFEB /* Assert.m */; };
 		752C0EA315E6A5AA009169FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752C0EA215E6A5AA009169FE /* UIKit.framework */; };
 		752C0EA515E6A5AA009169FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752C0EA415E6A5AA009169FE /* Foundation.framework */; };
 		752C0EA715E6A5AA009169FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752C0EA615E6A5AA009169FE /* CoreGraphics.framework */; };
@@ -18,7 +20,7 @@
 		752C0EC815E6A9F4009169FE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0EC715E6A9F4009169FE /* MainViewController.m */; };
 		752C0ECB15E6AA07009169FE /* HostGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ECA15E6AA07009169FE /* HostGameViewController.m */; };
 		752C0ECE15E6AA0F009169FE /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ECD15E6AA0F009169FE /* JoinGameViewController.m */; };
-		752C0ED115E6AA1A009169FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ED015E6AA1A009169FE /* GameViewController.m */; };
+		752C0ED115E6AA1A009169FE /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ED015E6AA1A009169FE /* GameViewController.mm */; };
 		752C0ED415E6AAA8009169FE /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ED315E6AAA8009169FE /* InfoViewController.m */; };
 		7590453015E6B577005DC5BC /* PlayerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7590452F15E6B577005DC5BC /* PlayerInfoView.m */; };
 		7590453315E6B58B005DC5BC /* PlayerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7590453215E6B58B005DC5BC /* PlayerInfoView.xib */; };
@@ -50,6 +52,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F88CD05160F39580059CFEB /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		1F88CD07160F39600059CFEB /* Board.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Board.mm; sourceTree = "<group>"; };
+		1F88CD09160F3D570059CFEB /* Board.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = Board.inl; sourceTree = "<group>"; };
+		1F88CD0A160F484F0059CFEB /* Assert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assert.h; sourceTree = "<group>"; };
+		1F88CD0B160F48820059CFEB /* Assert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assert.m; sourceTree = "<group>"; };
 		752C0E9E15E6A5AA009169FE /* CTL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		752C0EA215E6A5AA009169FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		752C0EA415E6A5AA009169FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,7 +77,7 @@
 		752C0ECC15E6AA0F009169FE /* JoinGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGameViewController.h; sourceTree = "<group>"; };
 		752C0ECD15E6AA0F009169FE /* JoinGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGameViewController.m; sourceTree = "<group>"; };
 		752C0ECF15E6AA1A009169FE /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		752C0ED015E6AA1A009169FE /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		752C0ED015E6AA1A009169FE /* GameViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameViewController.mm; sourceTree = "<group>"; };
 		752C0ED215E6AAA8009169FE /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		752C0ED315E6AAA8009169FE /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		7590452F15E6B577005DC5BC /* PlayerInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoView.m; sourceTree = "<group>"; };
@@ -211,6 +218,9 @@
 				75ACB68215E6B06B00985EA6 /* PlayerGameData.m */,
 				75ACB68715E6B10D00985EA6 /* Tile.h */,
 				75ACB68815E6B10D00985EA6 /* Tile.m */,
+				1F88CD05160F39580059CFEB /* Board.h */,
+				1F88CD07160F39600059CFEB /* Board.mm */,
+				1F88CD09160F3D570059CFEB /* Board.inl */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -225,7 +235,7 @@
 				752C0ECC15E6AA0F009169FE /* JoinGameViewController.h */,
 				752C0ECD15E6AA0F009169FE /* JoinGameViewController.m */,
 				752C0ECF15E6AA1A009169FE /* GameViewController.h */,
-				752C0ED015E6AA1A009169FE /* GameViewController.m */,
+				752C0ED015E6AA1A009169FE /* GameViewController.mm */,
 				752C0ED215E6AAA8009169FE /* InfoViewController.h */,
 				752C0ED315E6AAA8009169FE /* InfoViewController.m */,
 			);
@@ -275,6 +285,8 @@
 			children = (
 				9A7ACD99160E13FB00B316D2 /* GCTurnedMatchHelper.h */,
 				9A7ACD9A160E13FB00B316D2 /* GCTurnedMatchHelper.m */,
+				1F88CD0A160F484F0059CFEB /* Assert.h */,
+				1F88CD0B160F48820059CFEB /* Assert.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -382,13 +394,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F88CD0C160F4DBB0059CFEB /* Assert.m in Sources */,
 				752C0EAF15E6A5AA009169FE /* main.m in Sources */,
 				752C0EB315E6A5AA009169FE /* AppDelegate.m in Sources */,
 				752C0EB915E6A5AA009169FE /* ViewController.m in Sources */,
 				752C0EC815E6A9F4009169FE /* MainViewController.m in Sources */,
 				752C0ECB15E6AA07009169FE /* HostGameViewController.m in Sources */,
 				752C0ECE15E6AA0F009169FE /* JoinGameViewController.m in Sources */,
-				752C0ED115E6AA1A009169FE /* GameViewController.m in Sources */,
+				752C0ED115E6AA1A009169FE /* GameViewController.mm in Sources */,
 				752C0ED415E6AAA8009169FE /* InfoViewController.m in Sources */,
 				75ACB68015E6B03D00985EA6 /* Player.m in Sources */,
 				75ACB68315E6B06B00985EA6 /* PlayerGameData.m in Sources */,
@@ -403,6 +416,7 @@
 				9A7ACDB5160F003C00B316D2 /* CurrentConstructedWordCell.m in Sources */,
 				9A7ACDB8160F00D800B316D2 /* PlayerCell.m in Sources */,
 				9A7ACDBE160F077C00B316D2 /* ProgressBarCell.m in Sources */,
+				1F88CD08160F39600059CFEB /* Board.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

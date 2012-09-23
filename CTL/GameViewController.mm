@@ -27,7 +27,21 @@
 #import "PlayerGameData.h"
 #import "PlayerInfoView.h"
 #import "Tile.h"
+#import "Board.h"
 #import <QuartzCore/QuartzCore.h>
+
+#include <stdlib.h>
+board::State random_board() {
+	board::State board = {0};
+	board.num_players = 5;
+	
+	for (unsigned p = 0; p != board.num_players; ++p) {
+		for (unsigned l = 0; l != board::NUM_LETTERS; ++l)
+			board.letters[p][l] = 'A' + (rand() % 24);
+	}
+	
+	return board;
+}
 
 @interface GameViewController ()
 
@@ -39,6 +53,7 @@
 @synthesize letterBag = _letterBag;
 @synthesize game = _game;
 @synthesize gameTableView = _gameTableView;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,18 +77,26 @@
     [_gameTableView registerNib:playerCellNib forCellReuseIdentifier:@"player"];
     [_gameTableView registerNib:progressBarCell forCellReuseIdentifier:@"progressBar"];
 
+	board::State board = random_board();
+	
     //Skapa viewn programmatiskt, en rad per spelare
     _playerArray = [[NSMutableArray alloc] init];
-    
-    for (NSInteger i = 0; i < 5; i++) {
-        Letter *l = [[Letter alloc] init];
-        l.character = @"A";
-        l.points = [NSNumber numberWithInt:1];
-        
-        Tile *t = [[Tile alloc] init];
-        t.letter = l;
-        
-        NSMutableArray *tileArray = [NSMutableArray arrayWithObjects:t,t,t,t,t, nil];
+
+    for (unsigned p = 0; p != board.num_players; ++p) {
+		board::TempAllocator128 ta;
+		NSMutableArray* tiles = [[NSMutableArray alloc] init];
+		
+		// char* word = board::word(ta, board, p);
+		
+		for (unsigned l = 0; l != board::NUM_LETTERS; ++l) {
+			Letter *letter = [[Letter alloc] init];
+			letter.character = [NSString stringWithUTF8String:board::letter(ta, board, p, l)];
+			letter.points = [NSNumber numberWithInt:1];
+			
+			Tile *tile = [[Tile alloc] init];
+			tile.letter = letter;
+			[tiles addObject:tile];
+		}		
         
         // Player 1
         Player *p1 = [[Player alloc] init];
@@ -83,7 +106,7 @@
         PlayerGameData *p1_gamedata = [[PlayerGameData alloc] init];
         p1_gamedata.player = p1;
         p1_gamedata.score = 0;
-        p1_gamedata.tileArray = tileArray;
+        p1_gamedata.tileArray = tiles;
         [_playerArray addObject:p1_gamedata];
     }
         
