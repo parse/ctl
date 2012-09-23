@@ -142,7 +142,7 @@ board::State random_board() {
 
 /**
  * Handle pressed character button events
- *
+ * Adds letter to the active game
  */
 - (void)playerCharacterButtonPressed:(id)sender event:(id)event
 {
@@ -170,9 +170,9 @@ board::State random_board() {
         }
         
         // Find associated Player and Tile
-        NSInteger chosenPlayerIndex = indexPath.row-2;
+        NSInteger chosenPlayerIndex = indexPath.row-2; //-2 is because we have a progress bar and chosen letters cell
         
-        PlayerGameData *pressedPlayer = [_playerArray objectAtIndex:chosenPlayerIndex]; //-2 because we have progress bar and chosen letters
+        PlayerGameData *pressedPlayer = [_playerArray objectAtIndex:chosenPlayerIndex];
         Tile *t = (Tile *)[pressedPlayer.tileArray objectAtIndex:buttonIndex];
 
         // Change background colour of button
@@ -189,7 +189,7 @@ board::State random_board() {
 
 /**
  * Handle pressed button in constructed word area
- *
+ * Remove relevant letter from game array
  */
 - (void)constructedWordCharacterButtonPressed:(id)sender event:(id)event
 {
@@ -234,13 +234,14 @@ board::State random_board() {
  */
 - (void)setUpConstructedWordCell:(CurrentConstructedWordCell *)cell
 {
-    UIButton *butt;
+    UIButton *constructedWordButton;
         
     for (NSInteger i = 1; i < 7; i++) {
-        butt = (UIButton *)[cell viewWithTag:i];
-        [butt setTitle:@"" forState:UIControlStateNormal];
-        [butt addTarget:self action:@selector(constructedWordCharacterButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
-
+        constructedWordButton = (UIButton *)[cell viewWithTag:i];
+        [constructedWordButton setTitle:@"" forState:UIControlStateNormal];
+        
+        // Respond to touch events to remove letter
+        [constructedWordButton addTarget:self action:@selector(constructedWordCharacterButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
@@ -250,7 +251,7 @@ board::State random_board() {
  */
 - (void)setUpProgressBarCell:(ProgressBarCell *)cell
 {
-    // TODO: Setup cell
+    // TODO: Countdown 15 seconds and disable board for this player
 }
 
 /**
@@ -271,9 +272,12 @@ board::State random_board() {
         
         [characterButton setTitle:t.letter.character forState:UIControlStateNormal];
         [characterButton.titleLabel setTextAlignment: UITextAlignmentCenter];
+        
+        // Respond to touch evenets to add letter to our constructed word
         [characterButton addTarget:self action:@selector(playerCharacterButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
     }
     
+    // TODO: Add player info meta data
     //PlayerInfoViewController *playerInfoView = (PlayerInfoViewController *)[cell viewWithTag:6];
     
     //[playerInfoView setThumbnailImage: [UIImage imageNamed:@"ctl-logotype.png"]];
