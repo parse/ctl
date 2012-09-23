@@ -32,6 +32,7 @@
 		9A29673C160F18F300DE2471 /* visitor1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29673A160F18F300DE2471 /* visitor1.ttf */; };
 		9A29673D160F18F300DE2471 /* visitor2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A29673B160F18F300DE2471 /* visitor2.ttf */; };
 		9A471F88160F291C007106E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A471F87160F291C007106E8 /* QuartzCore.framework */; };
+		9A471F91160F4680007106E8 /* GameLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A471F8F160F467F007106E8 /* GameLobbyViewController.m */; };
 		9A57ED88160347E500AB95F0 /* Packet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57ED87160347E500AB95F0 /* Packet.m */; };
 		9A7ACD98160E137000B316D2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7ACD97160E137000B316D2 /* GameKit.framework */; };
 		9A7ACD9B160E13FB00B316D2 /* GCTurnedMatchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7ACD9A160E13FB00B316D2 /* GCTurnedMatchHelper.m */; };
@@ -94,6 +95,8 @@
 		9A29673A160F18F300DE2471 /* visitor1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = visitor1.ttf; path = ../Graphic/Fonts/visitor1.ttf; sourceTree = "<group>"; };
 		9A29673B160F18F300DE2471 /* visitor2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = visitor2.ttf; path = ../Graphic/Fonts/visitor2.ttf; sourceTree = "<group>"; };
 		9A471F87160F291C007106E8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9A471F8E160F467F007106E8 /* GameLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLobbyViewController.h; sourceTree = "<group>"; };
+		9A471F8F160F467F007106E8 /* GameLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLobbyViewController.m; sourceTree = "<group>"; };
 		9A57ED86160347E500AB95F0 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
 		9A57ED87160347E500AB95F0 /* Packet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Packet.m; sourceTree = "<group>"; };
 		9A7ACD97160E137000B316D2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -230,6 +233,8 @@
 				752C0ED015E6AA1A009169FE /* GameViewController.m */,
 				752C0ED215E6AAA8009169FE /* InfoViewController.h */,
 				752C0ED315E6AAA8009169FE /* InfoViewController.m */,
+				9A471F8E160F467F007106E8 /* GameLobbyViewController.h */,
+				9A471F8F160F467F007106E8 /* GameLobbyViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				9A7ACDB5160F003C00B316D2 /* CurrentConstructedWordCell.m in Sources */,
 				9A7ACDB8160F00D800B316D2 /* PlayerCell.m in Sources */,
 				9A7ACDBE160F077C00B316D2 /* ProgressBarCell.m in Sources */,
+				9A471F91160F4680007106E8 /* GameLobbyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
