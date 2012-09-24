@@ -140,6 +140,11 @@ board::State random_board() {
 
 #pragma mark - Game events
 
+- (void)updateBoard
+{
+
+}
+
 /**
  * Handle pressed character button events
  * Adds letter to the active game
@@ -152,15 +157,13 @@ board::State random_board() {
     NSIndexPath *indexPath = [_gameTableView indexPathForRowAtPoint: currentTouchPosition];
     
     if (indexPath != nil) {
-        NSInteger buttonIndex;
+        UIButton *characterButton = (UIButton *)sender;
         
-        // TODO: This is a quick and dirty way of doing it, fix me soon
-        for (NSInteger i=0; i<=5; i++) {
-            if (currentTouchPosition.x > 53*i && currentTouchPosition.x <= 53*(i+1)) {
-                buttonIndex = i;
-            }
-        }
-                
+        if ([characterButton isSelected]) return;
+        
+        // Get index of button
+        NSInteger buttonIndex = [characterButton tag]-1;
+                        
         // Find associated Player and Tile
         NSInteger chosenPlayerIndex = indexPath.row-2; //-2 is because we have a progress bar and chosen letters cell
         
@@ -168,14 +171,21 @@ board::State random_board() {
         Tile *t = (Tile *)[pressedPlayer.tileArray objectAtIndex:buttonIndex];
 
         // Change background colour of button
-        UIButton *characterButton = (UIButton *)sender;
-        characterButton.backgroundColor = [UIColor redColor];
+        if ([characterButton isSelected]) {
+            //characterButton.backgroundColor = [UIColor blackColor];
+            [characterButton setSelected:NO];
+        } else {
+            characterButton.backgroundColor = [UIColor redColor];
+            [characterButton setSelected:YES];
+        }
         
         NSString *chosenLetter = t.letter.character;
         NSLog(@"Letter %@ chosen from %@ (PlayerIndex %d)", chosenLetter, pressedPlayer.player.name, chosenPlayerIndex);
         
         // TODO: Fix call
-        //board::set_letter(currentBoard, chosenPlayerIndex, buttonIndex, t.letter.character);
+        board::set_letter(currentBoard, chosenPlayerIndex, buttonIndex, [t.letter.character UTF8String]);
+        
+        [self updateBoard];
     }
 }
 
@@ -191,19 +201,19 @@ board::State random_board() {
     NSIndexPath *indexPath = [_gameTableView indexPathForRowAtPoint: currentTouchPosition];
     
     if (indexPath != nil) {
-        NSInteger buttonIndex;
+        UIButton *characterButton = (UIButton *)sender;
         
-        // TODO: This is a quick and dirty way of doing it, fix me soon
-        for (NSInteger i=0; i<=6; i++) {
-            if (currentTouchPosition.x > 53*i && currentTouchPosition.x <= 53*(i+1)) {
-                buttonIndex = i;
-            }
-        }
-
+        // Get index of button
+        NSInteger buttonIndex = [characterButton tag]-1;
+        
         NSLog(@"Letter at index %d to be removed from constructed word array", buttonIndex);
         
-        // TODO: Fix and implement
+        // TODO: Put letter back in table view on the correct position
+        
+        // TODO: Fix and implement call to remove letter from struct
         //board::remove_letter(currentBoard, buttonIndex);
+        
+        [self updateBoard];
     }
 }
 
@@ -219,6 +229,7 @@ board::State random_board() {
     UIButton *constructedWordButton;
         
     for (NSInteger i = 1; i < 7; i++) {
+        // TODO: Get letters from struct 
         constructedWordButton = (UIButton *)[cell viewWithTag:i];
         [constructedWordButton setTitle:@"" forState:UIControlStateNormal];
         
