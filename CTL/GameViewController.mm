@@ -171,14 +171,11 @@ board::State random_board() {
         Tile *t = (Tile *)[pressedPlayer.tileArray objectAtIndex:buttonIndex];
 
         // Change background colour of button
-        if ([characterButton isSelected]) {
-            //characterButton.backgroundColor = [UIColor blackColor];
-            [characterButton setSelected:NO];
-        } else {
+        if (![characterButton isSelected]) {
             characterButton.backgroundColor = [UIColor redColor];
-            [characterButton setSelected:YES];
         }
-        
+        characterButton.selected = !characterButton.selected;
+		
         NSString *chosenLetter = t.letter.character;
         NSLog(@"Letter %@ chosen from %@ (PlayerIndex %d)", chosenLetter, pressedPlayer.player.name, chosenPlayerIndex);
         
@@ -232,7 +229,6 @@ board::State random_board() {
         // TODO: Get letters from struct 
         constructedWordButton = (UIButton *)[cell viewWithTag:i];
         [constructedWordButton setTitle:@"" forState:UIControlStateNormal];
-        
         // Respond to touch events to remove letter
         [constructedWordButton addTarget:self action:@selector(constructedWordCharacterButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -304,13 +300,13 @@ board::State random_board() {
     UITableViewCell *cell;
     
     if (indexPath.row == 0) {
-        cell = (CurrentConstructedWordCell *)[tableView dequeueReusableCellWithIdentifier:currentConstructedWordIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:currentConstructedWordIdentifier];
         [self setUpConstructedWordCell:(CurrentConstructedWordCell *)cell];
     } else if (indexPath.row == 1) {
-        cell = (ProgressBarCell *)[tableView dequeueReusableCellWithIdentifier:progressBarIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:progressBarIdentifier];
         [self setUpProgressBarCell:(ProgressBarCell *)cell];
     } else {
-        cell = (PlayerCell *)[tableView dequeueReusableCellWithIdentifier:playerCellIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:playerCellIdentifier];
         [self setUpPlayerCell:(PlayerCell *)cell indexPath:indexPath];
     }
 
