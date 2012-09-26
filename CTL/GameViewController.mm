@@ -103,7 +103,6 @@ board::State random_board() {
 			tile.letter = letter;
 			[tiles addObject:tile];
 		}		
-        
         // Player 1
         Player *p1 = [[Player alloc] init];
         p1.peerID = [NSString stringWithFormat:@"Player %d", p];
