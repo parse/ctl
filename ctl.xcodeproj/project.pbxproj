@@ -57,14 +57,14 @@
 		1F88CD09160F3D570059CFEB /* Board.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = Board.inl; sourceTree = "<group>"; };
 		1F88CD0A160F484F0059CFEB /* Assert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assert.h; sourceTree = "<group>"; };
 		1F88CD0B160F48820059CFEB /* Assert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assert.m; sourceTree = "<group>"; };
-		752C0E9E15E6A5AA009169FE /* CTL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		752C0E9E15E6A5AA009169FE /* ctl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ctl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		752C0EA215E6A5AA009169FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		752C0EA415E6A5AA009169FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		752C0EA615E6A5AA009169FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		752C0EAA15E6A5AA009169FE /* CTL-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CTL-Info.plist"; sourceTree = "<group>"; };
+		752C0EAA15E6A5AA009169FE /* ctl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ctl-Info.plist"; sourceTree = "<group>"; };
 		752C0EAC15E6A5AA009169FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		752C0EAE15E6A5AA009169FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		752C0EB015E6A5AA009169FE /* CTL-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTL-Prefix.pch"; sourceTree = "<group>"; };
+		752C0EB015E6A5AA009169FE /* ctl-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ctl-Prefix.pch"; sourceTree = "<group>"; };
 		752C0EB115E6A5AA009169FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		752C0EB215E6A5AA009169FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		752C0EB515E6A5AA009169FE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		752C0E9F15E6A5AA009169FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				752C0E9E15E6A5AA009169FE /* CTL.app */,
+				752C0E9E15E6A5AA009169FE /* ctl.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,10 +193,10 @@
 			children = (
 				9A29673F160F18F900DE2471 /* Fonts */,
 				9A7ACD9D160EFD6A00B316D2 /* Images */,
-				752C0EAA15E6A5AA009169FE /* CTL-Info.plist */,
+				752C0EAA15E6A5AA009169FE /* ctl-Info.plist */,
 				752C0EAB15E6A5AA009169FE /* InfoPlist.strings */,
 				752C0EAE15E6A5AA009169FE /* main.m */,
-				752C0EB015E6A5AA009169FE /* CTL-Prefix.pch */,
+				752C0EB015E6A5AA009169FE /* ctl-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -323,9 +323,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		752C0E9D15E6A5AA009169FE /* CTL */ = {
+		752C0E9D15E6A5AA009169FE /* ctl */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 752C0EBC15E6A5AA009169FE /* Build configuration list for PBXNativeTarget "CTL" */;
+			buildConfigurationList = 752C0EBC15E6A5AA009169FE /* Build configuration list for PBXNativeTarget "ctl" */;
 			buildPhases = (
 				752C0E9A15E6A5AA009169FE /* Sources */,
 				752C0E9B15E6A5AA009169FE /* Frameworks */,
@@ -335,9 +335,9 @@
 			);
 			dependencies = (
 			);
-			name = CTL;
+			name = ctl;
 			productName = CTL;
-			productReference = 752C0E9E15E6A5AA009169FE /* CTL.app */;
+			productReference = 752C0E9E15E6A5AA009169FE /* ctl.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -348,7 +348,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 752C0E9815E6A5A9009169FE /* Build configuration list for PBXProject "CTL" */;
+			buildConfigurationList = 752C0E9815E6A5A9009169FE /* Build configuration list for PBXProject "ctl" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -360,7 +360,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				752C0E9D15E6A5AA009169FE /* CTL */,
+				752C0E9D15E6A5AA009169FE /* ctl */,
 			);
 		};
 /* End PBXProject section */
@@ -448,7 +448,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Oskar Wiren (7CE456Z33K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Oskar Wiren (7CE456Z33K)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -463,6 +464,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "B75ED96A-458B-4A63-9FC2-8EA4F2B7992E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B75ED96A-458B-4A63-9FC2-8EA4F2B7992E";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -473,6 +476,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Oskar Wiren (7CE456Z33K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -482,6 +486,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "18E1561A-E2D2-48C6-856B-F74565BB00BB";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -490,10 +495,14 @@
 		752C0EBD15E6A5AA009169FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Oskar Wiren (7CE456Z33K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Oskar Wiren (7CE456Z33K)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CTL/CTL-Prefix.pch";
-				INFOPLIST_FILE = "CTL/CTL-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CTL/ctl-Prefix.pch";
+				INFOPLIST_FILE = "CTL/ctl-Info.plist";
+				PRODUCT_NAME = ctl;
+				PROVISIONING_PROFILE = "B75ED96A-458B-4A63-9FC2-8EA4F2B7992E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B75ED96A-458B-4A63-9FC2-8EA4F2B7992E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -501,10 +510,12 @@
 		752C0EBE15E6A5AA009169FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Oskar Wiren (7CE456Z33K)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CTL/CTL-Prefix.pch";
-				INFOPLIST_FILE = "CTL/CTL-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CTL/ctl-Prefix.pch";
+				INFOPLIST_FILE = "CTL/ctl-Info.plist";
+				PRODUCT_NAME = ctl;
+				PROVISIONING_PROFILE = "18E1561A-E2D2-48C6-856B-F74565BB00BB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -512,7 +523,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		752C0E9815E6A5A9009169FE /* Build configuration list for PBXProject "CTL" */ = {
+		752C0E9815E6A5A9009169FE /* Build configuration list for PBXProject "ctl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				752C0EBA15E6A5AA009169FE /* Debug */,
@@ -521,7 +532,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		752C0EBC15E6A5AA009169FE /* Build configuration list for PBXNativeTarget "CTL" */ = {
+		752C0EBC15E6A5AA009169FE /* Build configuration list for PBXNativeTarget "ctl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				752C0EBD15E6A5AA009169FE /* Debug */,
