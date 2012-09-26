@@ -180,10 +180,10 @@ board::State random_board() {
         }
         
         NSString *chosenLetter = t.letter.character;
-        NSLog(@"Letter %@ chosen from %@ (PlayerIndex %d)", chosenLetter, pressedPlayer.player.name, chosenPlayerIndex);
+        NSLog(@"Letter %s chosen from %@ (PlayerIndex %d)", [chosenLetter UTF8String], pressedPlayer.player.name, chosenPlayerIndex);
         
         // TODO: Fix call
-        board::set_letter(currentBoard, chosenPlayerIndex, buttonIndex, [t.letter.character UTF8String]);
+        board::set_letter(currentBoard, chosenPlayerIndex, buttonIndex, [chosenLetter UTF8String]);
         
         [self updateBoard];
     }
