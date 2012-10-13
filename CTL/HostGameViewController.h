@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCHelper.h"
 
-@interface HostGameViewController : UIViewController
+@interface HostGameViewController : UIViewController <GCHelperDelegate>
 
 @property (nonatomic, strong) NSMutableArray *playerArray;
 

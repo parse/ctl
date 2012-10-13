@@ -44,8 +44,7 @@ static GCHelper *sharedHelper = nil;
     if ((self = [super init])) {
         gameCenterAvailable = [self isGameCenterAvailable];
         if (gameCenterAvailable) {
-            NSNotificationCenter *nc = 
-            [NSNotificationCenter defaultCenter];
+            NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
             [nc addObserver:self 
                    selector:@selector(authenticationChanged) 
                        name:GKPlayerAuthenticationDidChangeNotificationName 

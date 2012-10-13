@@ -28,7 +28,9 @@
 #import "PlayerInfoViewController.h"
 #import "Tile.h"
 #import "Board.h"
+#import "GCHelper.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Network.h"
 
 #include <stdlib.h>
 
@@ -53,6 +55,7 @@ board::State random_board() {
 
 @implementation GameViewController {
     board::State currentBoard;
+    Network *networkHelper;
 }
 
 @synthesize playerArray = _playerArray;
@@ -75,6 +78,8 @@ board::State random_board() {
 {
     [super viewDidLoad];
 	
+    networkHelper = [[Network alloc] init];
+
     UINib *constructedWordNib = [UINib nibWithNibName:@"CurrentConstructedWordCell" bundle:nil];
     UINib *playerCellNib = [UINib nibWithNibName:@"PlayerCell" bundle:nil];
     UINib *progressBarCell = [UINib nibWithNibName:@"ProgressBarCell" bundle:nil];
@@ -322,5 +327,4 @@ board::State random_board() {
     // the number of players, + 1 for the current constructed word cell, + 1 for the progress bar.
     return _playerArray.count + 2;
 }
-
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "HostGameViewController.h"
+#import "GCHelper.h"
+#import "GameViewController.h"
 
 @interface HostGameViewController ()
 
@@ -28,6 +30,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Set ourselves as player 1 and the game to active
+    //[self setGameState:kGameStateActive];
+    
+    //GameViewController *gameViewController = [[GameViewController alloc] init];
+    
+//    [self setGameState:kGameStateWaitingForMatch];
+    
 	// Do any additional setup after loading the view.
 }
 

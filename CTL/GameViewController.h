@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCHelper.h"
 
 @class LetterBag;
 @class Game;
