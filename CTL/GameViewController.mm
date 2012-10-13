@@ -53,6 +53,7 @@ board::State random_board() {
 
 @implementation GameViewController {
     board::State currentBoard;
+	NSUInteger nextLetterIndex;
 }
 
 @synthesize playerArray = _playerArray;
@@ -65,7 +66,7 @@ board::State random_board() {
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        nextLetterIndex = 0;
         // Custom initialization
     }
     return self;
@@ -178,8 +179,8 @@ board::State random_board() {
         NSString *chosenLetter = t.letter.character;
         NSLog(@"Letter %@ chosen from %@ (PlayerIndex %d)", chosenLetter, pressedPlayer.player.name, chosenPlayerIndex);
         
-        // TODO: Fix call
-        board::set_letter(currentBoard, chosenPlayerIndex, buttonIndex, [t.letter.character UTF8String]);
+		board::set_selected(currentBoard, chosenPlayerIndex, buttonIndex, true);
+        board::set_word_letter(currentBoard, nextLetterIndex++, [t.letter.character UTF8String]);
         
         [self updateBoard];
     }

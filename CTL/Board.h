@@ -70,8 +70,14 @@ namespace board {
 	/// Returns an UTF-8 string with the current word.
 	char* word(Allocator& allocator, const State& state);
 	
+	/// Set the current word to @p to.
+	void set_word(State& state, const char* word);
+	
 	/// Returns an UTF-8 string with a the letter at index @p letter of the current word.
-	char* letter(Allocator& allocator, const State& state, unsigned letter);
+	char* word_letter(Allocator& allocator, const State& state, unsigned letter);
+	
+	/// Sets the letter at index @p letter of the current word to @p to.
+	void set_word_letter(State& state, unsigned letter, const char* to);
 	
 	/// Sets the score of the player at index @player to @p score.
 	inline void set_score(State& state, Player player, Score score);

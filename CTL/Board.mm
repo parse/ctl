@@ -121,4 +121,20 @@ namespace board {
 		*p = 0;
 		return string;
 	}
+	
+	char* word_letter(Allocator& allocator, const State& state, unsigned letter) {
+		Assert(letter < WORD_SIZE, "Letter index %d out of range [0, %d]", letter, WORD_SIZE);
+		
+		Letter l = state.word[letter];
+		unsigned length = letter_utf8_length(l);
+		char* string = (char*)allocator.allocate(length + 1);
+		*encode(l, string) = 0;
+		return string;
+
+	}
+
+	void set_word_letter(State& state, unsigned letter, const char* utf8) {
+		Assert(letter < WORD_SIZE, "Letter index %d out of range [0, %d]", letter, WORD_SIZE);
+		decode(utf8, state.word[letter]);
+	}
 }
