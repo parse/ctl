@@ -10,5 +10,4 @@
 #import "GCHelper.h"
 
 @interface Network : NSObject <GCHelperDelegate>
-
 @end

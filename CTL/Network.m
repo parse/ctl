@@ -15,7 +15,7 @@
 {
     [[GCHelper sharedInstance] findMatchWithMinPlayers:2 maxPlayers:numPlayers viewController:presentingViewController delegate:self];
 }
-
+/*
 - (void)sendData:(NSData *)data
 {
     NSError *error;
@@ -81,7 +81,7 @@
 
 - (void)matchStarted {
     NSLog(@"Match started");
-    /*
+    
      if (receivedRandom) {
      [self setGameState:kGameStateWaitingForStart];
      } else {
@@ -89,7 +89,7 @@
      }
      [self sendRandomNumber];
      [self tryStartGame];
-     */
+     
 }
 
 - (void)inviteReceived {
@@ -165,7 +165,7 @@
         
     }
 }
-
+*/
 
 
 

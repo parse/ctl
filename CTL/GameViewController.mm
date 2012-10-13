@@ -121,7 +121,7 @@ board::State random_board() {
         [_playerArray addObject:p1_gamedata];
     }
         
-    [_gameTableView reloadData];
+	[self updateBoard];
 }
 
 - (void)viewDidUnload
@@ -147,7 +147,7 @@ board::State random_board() {
 
 - (void)updateBoard
 {
-
+	[self.gameTableView reloadData];
 }
 
 /**
@@ -174,12 +174,6 @@ board::State random_board() {
         
         PlayerGameData *pressedPlayer = [_playerArray objectAtIndex:chosenPlayerIndex];
         Tile *t = (Tile *)[pressedPlayer.tileArray objectAtIndex:buttonIndex];
-
-        // Change background colour of button
-        if (![characterButton isSelected]) {
-            characterButton.backgroundColor = [UIColor redColor];
-        }
-        characterButton.selected = !characterButton.selected;
 		
         NSString *chosenLetter = t.letter.character;
         NSLog(@"Letter %s chosen from %@ (PlayerIndex %d)", [chosenLetter UTF8String], pressedPlayer.player.name, chosenPlayerIndex);
@@ -191,35 +185,6 @@ board::State random_board() {
     }
 }
 
-/**
- * Handle pressed button in constructed word area
- * Remove relevant letter from game array
- */
-- (void)constructedWordCharacterButtonPressed:(id)sender event:(id)event
-{
-    NSSet *touches = [event allTouches];
-    UITouch *touch = [touches anyObject];
-    CGPoint currentTouchPosition = [touch locationInView:_gameTableView];
-    NSIndexPath *indexPath = [_gameTableView indexPathForRowAtPoint: currentTouchPosition];
-    
-    if (indexPath != nil) {
-        UIButton *characterButton = (UIButton *)sender;
-        
-        // Get index of button
-        NSInteger buttonIndex = [characterButton tag]-1;
-        
-        NSLog(@"Letter at index %d to be removed from constructed word array", buttonIndex);
-        
-        // TODO: Put letter back in table view on the correct position
-        
-        // TODO: Fix and implement call to remove letter from struct
-        //board::remove_letter(currentBoard, buttonIndex);
-        
-        [self updateBoard];
-    }
-}
-
-
 #pragma mark - Table View Configure Cells
 
 /**
@@ -228,15 +193,35 @@ board::State random_board() {
  */
 - (void)setUpConstructedWordCell:(CurrentConstructedWordCell *)cell
 {
-    UIButton *constructedWordButton;
-        
-    for (NSInteger i = 1; i < 7; i++) {
-        // TODO: Get letters from struct 
-        constructedWordButton = (UIButton *)[cell viewWithTag:i];
-        [constructedWordButton setTitle:@"" forState:UIControlStateNormal];
-        // Respond to touch events to remove letter
-        [constructedWordButton addTarget:self action:@selector(constructedWordCharacterButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
-    }
+	for (UIView *view in cell.subviews) {
+		if ([view isKindOfClass:[UILabel class]])
+			[view removeFromSuperview];
+	}
+	
+	UIFont *font = [UIFont fontWithName:@"Visitor TT1 BRK" size:45];
+	
+	board::TempAllocator128 ta;
+	NSUInteger num_letters = board::num_word_letters(currentBoard);
+	
+	float w = MIN(cell.frame.size.width / num_letters, cell.frame.size.height);
+	
+	for (NSUInteger i = 0; i != num_letters; ++i) {
+		UILabel *letter = [[UILabel alloc] init];
+		const char* text = board::word_letter(ta, currentBoard, i);
+		letter.font = font;
+		[letter setText:[NSString stringWithCString:text encoding:NSUTF8StringEncoding]];
+		[letter setTextColor:[UIColor whiteColor]];
+		letter.backgroundColor = [UIColor clearColor];
+		letter.textAlignment = NSTextAlignmentCenter;
+		letter.frame = CGRectMake(w*i, 0, w, w);
+		
+		if (i != 0)
+            [PlayerCell setupStylesForCell:letter borderLeft:YES];
+        else
+            [PlayerCell setupStylesForCell:letter borderLeft:NO];
+		
+		[cell addSubview:letter];
+	}
 }
 
 /**
@@ -252,25 +237,23 @@ board::State random_board() {
  * Configure each player cell consisting of user info and generated characters
  *
  */
-- (void)setUpPlayerCell:(PlayerCell *)cell indexPath:(NSIndexPath *)indexPath
+- (void)setUpPlayerCell:(PlayerCell *)cell playerIndex:(NSUInteger)player
 {
-    UIButton *characterButton;
-    PlayerGameData *player = [_playerArray objectAtIndex:indexPath.row-2];
-
-    Tile *t;
-    
-    for (NSInteger i = 1; i < 6; i++) {
-        characterButton = (UIButton *)[cell viewWithTag:i];
-        
-        t = [player.tileArray objectAtIndex:i-1];
-        
-        [characterButton setTitle:t.letter.character forState:UIControlStateNormal];
-        [characterButton.titleLabel setTextAlignment: UITextAlignmentCenter];
-        
-        // Respond to touch evenets to add letter to our constructed word
-        [characterButton addTarget:self action:@selector(playerCharacterButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
+	board::TempAllocator128 ta;
+    PlayerGameData *playerInfo = [_playerArray objectAtIndex:player];
+	for (NSUInteger i = 0; i != board::NUM_LETTERS; ++i) {
+		UIButton *button = (UIButton *)[cell viewWithTag:i+1];
+		Tile *tile = [playerInfo.tileArray objectAtIndex:i];
+		tile.letter.character = [NSString stringWithCString:board::letter(ta, currentBoard, player, i) encoding:NSUTF8StringEncoding];
+		button.selected = board::is_selected(currentBoard, player, i);
+		button.backgroundColor = button.selected ? [UIColor redColor] : [UIColor blackColor];
+		[button setTitle:tile.letter.character forState:UIControlStateNormal];
+        [button.titleLabel setTextAlignment: UITextAlignmentCenter];
+		
+		if (![button respondsToSelector:@selector(playerCharacterButtonPressed:event:)])
+			[button addTarget:self action:@selector(playerCharacterButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
+	}
+	
     // TODO: Add player info meta data
     //PlayerInfoViewController *playerInfoView = (PlayerInfoViewController *)[cell viewWithTag:6];
     
@@ -284,16 +267,26 @@ board::State random_board() {
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
-        case 0:
+        case CONSTRUCTED_WORD_CELL_INDEX:
             return 53;
             break;
-        case 1:
+        case PROGRESS_BAR_CELL_INDEX:
             return 25;
             break;
         default:
             return 60;
             break;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (indexPath.row == CONSTRUCTED_WORD_CELL_INDEX) {
+		board::clear_word(currentBoard);
+		board::clear_selected(currentBoard);
+		nextLetterIndex = 0;
+		[self updateBoard];
+	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -304,16 +297,20 @@ board::State random_board() {
     
     UITableViewCell *cell;
     
-    if (indexPath.row == 0) {
+    if (indexPath.row == CONSTRUCTED_WORD_CELL_INDEX) {
         cell = [tableView dequeueReusableCellWithIdentifier:currentConstructedWordIdentifier];
         [self setUpConstructedWordCell:(CurrentConstructedWordCell *)cell];
-    } else if (indexPath.row == 1) {
+    } else if (indexPath.row == PROGRESS_BAR_CELL_INDEX) {
         cell = [tableView dequeueReusableCellWithIdentifier:progressBarIdentifier];
         [self setUpProgressBarCell:(ProgressBarCell *)cell];
-    } else {
+    } else if (indexPath.row >= PLAYER_CELL_INDEX_START) {
         cell = [tableView dequeueReusableCellWithIdentifier:playerCellIdentifier];
-        [self setUpPlayerCell:(PlayerCell *)cell indexPath:indexPath];
-    }
+        [self setUpPlayerCell:(PlayerCell *)cell playerIndex:indexPath.row-2];
+    } else {
+		Assert(false, "Invalid cell type");
+	}
+	
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     return cell;
 }

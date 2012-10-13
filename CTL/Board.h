@@ -37,7 +37,7 @@ namespace board {
 	typedef unsigned Player;
 	typedef unsigned char Flags;
 	
-	enum { MAX_PLAYERS = 5, NUM_LETTERS = 5, WORD_SIZE = 10 };
+	enum { NO_LETTER = 0, MAX_PLAYERS = 5, NUM_LETTERS = 5, WORD_SIZE = 10 };
 	
 	enum {
 		SELECTED = 1 << 0,			///< Selected letter state.
@@ -79,6 +79,12 @@ namespace board {
 	/// Sets the letter at index @p letter of the current word to @p to.
 	void set_word_letter(State& state, unsigned letter, const char* to);
 	
+	/// Returns the number of letters in the current word.
+	unsigned num_word_letters(const State& state);
+	
+	/// Clears the current word.
+	void clear_word(State& state);
+	
 	/// Sets the score of the player at index @player to @p score.
 	inline void set_score(State& state, Player player, Score score);
 	
@@ -106,6 +112,14 @@ namespace board {
 				set_flags(state, player, letter, SELECTED);
 			else
 				remove_flags(state, player, letter, SELECTED);
+		}
+	
+		/// Clear all selected state
+		inline void clear_selected(State& state) {
+			for (unsigned p = 0; p != state.num_players; ++p) {
+				for (unsigned l = 0; l != NUM_LETTERS; ++l)
+					set_selected(state, p, l, false);
+			}
 		}
 	/// @}
 }

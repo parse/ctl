@@ -26,4 +26,14 @@ namespace board {
 		Assert(player < state.num_players, "Player index %d out of range [0, %d]", player, state.num_players);
 		state.scores[player] = score;
 	}
+	
+	inline void clear_word(State& state) {
+		memset(state.word, 0, sizeof(Letter) * WORD_SIZE);
+	}
+	
+	inline unsigned num_word_letters(const State& state) {
+		unsigned n_letters = 0;
+		for (unsigned i = 0; i != WORD_SIZE && state.word[i] != NO_LETTER; ++i, ++n_letters);
+		return n_letters;
+	}
 }

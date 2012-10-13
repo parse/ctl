@@ -12,6 +12,12 @@
 @class LetterBag;
 @class Game;
 
+enum CellTypeIndex {
+	CONSTRUCTED_WORD_CELL_INDEX = 0,
+	PROGRESS_BAR_CELL_INDEX,
+	PLAYER_CELL_INDEX_START
+};
+
 @interface GameViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *gameTableView;
