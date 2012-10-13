@@ -7,9 +7,10 @@
 //
 
 #import "PlayerCell.h"
-#import "PlayerInfoViewController.h"
 
 @implementation PlayerCell
+
+@synthesize playerIndex = _playerIndex;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
