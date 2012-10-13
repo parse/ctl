@@ -49,6 +49,7 @@
 		9A7ACDBA160F00E900B316D2 /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7ACDB9160F00E900B316D2 /* PlayerCell.xib */; };
 		9A7ACDBE160F077C00B316D2 /* ProgressBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7ACDBD160F077B00B316D2 /* ProgressBarCell.m */; };
 		9A7ACDC0160F079200B316D2 /* ProgressBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7ACDBF160F079200B316D2 /* ProgressBarCell.xib */; };
+		9AC578801629677500A68882 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5787F1629677500A68882 /* Network.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,8 @@
 		9A7ACDBC160F077B00B316D2 /* ProgressBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBarCell.h; sourceTree = "<group>"; };
 		9A7ACDBD160F077B00B316D2 /* ProgressBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressBarCell.m; sourceTree = "<group>"; };
 		9A7ACDBF160F079200B316D2 /* ProgressBarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressBarCell.xib; sourceTree = "<group>"; };
+		9AC5787E1629677500A68882 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		9AC5787F1629677500A68882 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +270,8 @@
 			children = (
 				9A57ED86160347E500AB95F0 /* Packet.h */,
 				9A57ED87160347E500AB95F0 /* Packet.m */,
+				9AC5787E1629677500A68882 /* Network.h */,
+				9AC5787F1629677500A68882 /* Network.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				9A7ACDBE160F077C00B316D2 /* ProgressBarCell.m in Sources */,
 				1F88CD08160F39600059CFEB /* Board.mm in Sources */,
 				7550761B16137C61000D990D /* GCHelper.m in Sources */,
+				9AC578801629677500A68882 /* Network.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

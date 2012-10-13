@@ -28,7 +28,9 @@
 #import "PlayerInfoViewController.h"
 #import "Tile.h"
 #import "Board.h"
+#import "GCHelper.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Network.h"
 
 #include <stdlib.h>
 
@@ -54,6 +56,7 @@ board::State random_board() {
 @implementation GameViewController {
     board::State currentBoard;
 	NSUInteger nextLetterIndex;
+    Network *networkHelper;
 }
 
 @synthesize playerArray = _playerArray;
@@ -76,6 +79,8 @@ board::State random_board() {
 {
     [super viewDidLoad];
 	
+    networkHelper = [[Network alloc] init];
+
     UINib *constructedWordNib = [UINib nibWithNibName:@"CurrentConstructedWordCell" bundle:nil];
     UINib *playerCellNib = [UINib nibWithNibName:@"PlayerCell" bundle:nil];
     UINib *progressBarCell = [UINib nibWithNibName:@"ProgressBarCell" bundle:nil];
@@ -177,8 +182,8 @@ board::State random_board() {
         characterButton.selected = !characterButton.selected;
 		
         NSString *chosenLetter = t.letter.character;
-        NSLog(@"Letter %@ chosen from %@ (PlayerIndex %d)", chosenLetter, pressedPlayer.player.name, chosenPlayerIndex);
-        
+        NSLog(@"Letter %s chosen from %@ (PlayerIndex %d)", [chosenLetter UTF8String], pressedPlayer.player.name, chosenPlayerIndex);
+
 		board::set_selected(currentBoard, chosenPlayerIndex, buttonIndex, true);
         board::set_word_letter(currentBoard, nextLetterIndex++, [t.letter.character UTF8String]);
         
@@ -323,5 +328,4 @@ board::State random_board() {
     // the number of players, + 1 for the current constructed word cell, + 1 for the progress bar.
     return _playerArray.count + 2;
 }
-
 @end
