@@ -55,7 +55,7 @@
 /* Begin PBXFileReference section */
 		1F88CD05160F39580059CFEB /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		1F88CD07160F39600059CFEB /* Board.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Board.mm; sourceTree = "<group>"; };
-		1F88CD09160F3D570059CFEB /* Board.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = Board.inl; sourceTree = "<group>"; };
+		1F88CD09160F3D570059CFEB /* Board.inl */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = Board.inl; sourceTree = "<group>"; };
 		1F88CD0A160F484F0059CFEB /* Assert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assert.h; sourceTree = "<group>"; };
 		1F88CD0B160F48820059CFEB /* Assert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assert.m; sourceTree = "<group>"; };
 		752C0E9E15E6A5AA009169FE /* ctl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ctl.app; sourceTree = BUILT_PRODUCTS_DIR; };
