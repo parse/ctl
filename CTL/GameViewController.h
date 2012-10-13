@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GCHelper.h"
+#import "NetworkDelegate.h"
 
 @class LetterBag;
 @class Game;
@@ -18,7 +19,7 @@ enum CellTypeIndex {
 	PLAYER_CELL_INDEX_START
 };
 
-@interface GameViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GameViewController : UIViewController <NetworkDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *gameTableView;
 @property (nonatomic, strong) NSMutableArray *playerArray;

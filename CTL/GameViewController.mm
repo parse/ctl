@@ -56,7 +56,7 @@ board::State random_board() {
 @implementation GameViewController {
     board::State currentBoard;
 	NSUInteger nextLetterIndex;
-    Network *networkHelper;
+    Network *network;
 }
 
 @synthesize playerArray = _playerArray;
@@ -79,7 +79,9 @@ board::State random_board() {
 {
     [super viewDidLoad];
 	
-    networkHelper = [[Network alloc] init];
+    network = [[Network alloc] init];
+	network.delegate = self;
+	[network startGameWithNumbersOfPlayers:2];
 
     UINib *constructedWordNib = [UINib nibWithNibName:@"CurrentConstructedWordCell" bundle:nil];
     UINib *playerCellNib = [UINib nibWithNibName:@"PlayerCell" bundle:nil];
@@ -128,6 +130,12 @@ board::State random_board() {
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void)boardReceived:(const board::State &)board
+{
+	currentBoard = board;
+	[self updateBoard];
 }
 
 // TODO: kolla upp smidigaste sättet att sätta upp spelplanens data.
@@ -180,6 +188,8 @@ board::State random_board() {
 
 		board::set_selected(currentBoard, chosenPlayerIndex, buttonIndex, true);
         board::set_word_letter(currentBoard, nextLetterIndex++, [t.letter.character UTF8String]);
+		
+		[network sendBoard:currentBoard];
         
         [self updateBoard];
     }

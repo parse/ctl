@@ -18,8 +18,8 @@
 		752C0EB615E6A5AA009169FE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 752C0EB415E6A5AA009169FE /* MainStoryboard.storyboard */; };
 		752C0EB915E6A5AA009169FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0EB815E6A5AA009169FE /* ViewController.m */; };
 		752C0EC815E6A9F4009169FE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0EC715E6A9F4009169FE /* MainViewController.m */; };
-		752C0ECB15E6AA07009169FE /* HostGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ECA15E6AA07009169FE /* HostGameViewController.m */; };
-		752C0ECE15E6AA0F009169FE /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ECD15E6AA0F009169FE /* JoinGameViewController.m */; };
+		752C0ECB15E6AA07009169FE /* HostGameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ECA15E6AA07009169FE /* HostGameViewController.mm */; };
+		752C0ECE15E6AA0F009169FE /* JoinGameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ECD15E6AA0F009169FE /* JoinGameViewController.mm */; };
 		752C0ED115E6AA1A009169FE /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ED015E6AA1A009169FE /* GameViewController.mm */; };
 		752C0ED415E6AAA8009169FE /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C0ED315E6AAA8009169FE /* InfoViewController.m */; };
 		7550761B16137C61000D990D /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7550761A16137C61000D990D /* GCHelper.m */; };
@@ -49,7 +49,7 @@
 		9A7ACDBA160F00E900B316D2 /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7ACDB9160F00E900B316D2 /* PlayerCell.xib */; };
 		9A7ACDBE160F077C00B316D2 /* ProgressBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7ACDBD160F077B00B316D2 /* ProgressBarCell.m */; };
 		9A7ACDC0160F079200B316D2 /* ProgressBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7ACDBF160F079200B316D2 /* ProgressBarCell.xib */; };
-		9AC578801629677500A68882 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5787F1629677500A68882 /* Network.m */; };
+		9AC578801629677500A68882 /* Network.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5787F1629677500A68882 /* Network.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +58,7 @@
 		1F88CD09160F3D570059CFEB /* Board.inl */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = Board.inl; sourceTree = "<group>"; };
 		1F88CD0A160F484F0059CFEB /* Assert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assert.h; sourceTree = "<group>"; };
 		1F88CD0B160F48820059CFEB /* Assert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assert.m; sourceTree = "<group>"; };
+		1F8ED6B61629B23F00D16F78 /* NetworkDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkDelegate.h; sourceTree = "<group>"; };
 		752C0E9E15E6A5AA009169FE /* ctl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ctl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		752C0EA215E6A5AA009169FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		752C0EA415E6A5AA009169FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,9 +75,9 @@
 		752C0EC615E6A9F4009169FE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		752C0EC715E6A9F4009169FE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		752C0EC915E6AA07009169FE /* HostGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostGameViewController.h; sourceTree = "<group>"; };
-		752C0ECA15E6AA07009169FE /* HostGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostGameViewController.m; sourceTree = "<group>"; };
+		752C0ECA15E6AA07009169FE /* HostGameViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HostGameViewController.mm; sourceTree = "<group>"; };
 		752C0ECC15E6AA0F009169FE /* JoinGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGameViewController.h; sourceTree = "<group>"; };
-		752C0ECD15E6AA0F009169FE /* JoinGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGameViewController.m; sourceTree = "<group>"; };
+		752C0ECD15E6AA0F009169FE /* JoinGameViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JoinGameViewController.mm; sourceTree = "<group>"; };
 		752C0ECF15E6AA1A009169FE /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		752C0ED015E6AA1A009169FE /* GameViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameViewController.mm; sourceTree = "<group>"; };
 		752C0ED215E6AAA8009169FE /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
@@ -124,7 +125,7 @@
 		9A7ACDBD160F077B00B316D2 /* ProgressBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressBarCell.m; sourceTree = "<group>"; };
 		9A7ACDBF160F079200B316D2 /* ProgressBarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressBarCell.xib; sourceTree = "<group>"; };
 		9AC5787E1629677500A68882 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
-		9AC5787F1629677500A68882 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		9AC5787F1629677500A68882 /* Network.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Network.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,9 +237,9 @@
 				752C0EC615E6A9F4009169FE /* MainViewController.h */,
 				752C0EC715E6A9F4009169FE /* MainViewController.m */,
 				752C0EC915E6AA07009169FE /* HostGameViewController.h */,
-				752C0ECA15E6AA07009169FE /* HostGameViewController.m */,
+				752C0ECA15E6AA07009169FE /* HostGameViewController.mm */,
 				752C0ECC15E6AA0F009169FE /* JoinGameViewController.h */,
-				752C0ECD15E6AA0F009169FE /* JoinGameViewController.m */,
+				752C0ECD15E6AA0F009169FE /* JoinGameViewController.mm */,
 				752C0ECF15E6AA1A009169FE /* GameViewController.h */,
 				752C0ED015E6AA1A009169FE /* GameViewController.mm */,
 				752C0ED215E6AAA8009169FE /* InfoViewController.h */,
@@ -271,7 +272,8 @@
 				9A57ED86160347E500AB95F0 /* Packet.h */,
 				9A57ED87160347E500AB95F0 /* Packet.m */,
 				9AC5787E1629677500A68882 /* Network.h */,
-				9AC5787F1629677500A68882 /* Network.m */,
+				9AC5787F1629677500A68882 /* Network.mm */,
+				1F8ED6B61629B23F00D16F78 /* NetworkDelegate.h */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -404,8 +406,8 @@
 				752C0EB315E6A5AA009169FE /* AppDelegate.m in Sources */,
 				752C0EB915E6A5AA009169FE /* ViewController.m in Sources */,
 				752C0EC815E6A9F4009169FE /* MainViewController.m in Sources */,
-				752C0ECB15E6AA07009169FE /* HostGameViewController.m in Sources */,
-				752C0ECE15E6AA0F009169FE /* JoinGameViewController.m in Sources */,
+				752C0ECB15E6AA07009169FE /* HostGameViewController.mm in Sources */,
+				752C0ECE15E6AA0F009169FE /* JoinGameViewController.mm in Sources */,
 				752C0ED115E6AA1A009169FE /* GameViewController.mm in Sources */,
 				752C0ED415E6AAA8009169FE /* InfoViewController.m in Sources */,
 				75ACB68015E6B03D00985EA6 /* Player.m in Sources */,
@@ -422,7 +424,7 @@
 				9A7ACDBE160F077C00B316D2 /* ProgressBarCell.m in Sources */,
 				1F88CD08160F39600059CFEB /* Board.mm in Sources */,
 				7550761B16137C61000D990D /* GCHelper.m in Sources */,
-				9AC578801629677500A68882 /* Network.m in Sources */,
+				9AC578801629677500A68882 /* Network.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
