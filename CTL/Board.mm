@@ -40,23 +40,14 @@ namespace {
 			return utf8 + 2;
 		} else if ((c&0xF0)==0xE0) {
 			Assert(false, "Only two-byte unicode codepoints are supported.");
-			//const char *d = utf8 + 1;
-			//Assert(((d[0]&0xC0)==0x80) && ((d[1]&0xC0)==0x80), "Archive not utf-8 encoded %s", utf8);
-			//codepoint = (static_cast<int>(c&0x0f)<<12) | (static_cast<int>(d[0]&0x3f)<<6) |
-			//static_cast<int>(d[1]&0x3f);
-			//return utf8 + 3;
 		} else if ((c&0xf8)==0xf0) {
 			Assert(false, "Only two-byte unicode codepoints are supported.");
-			//const char *d = utf8 + 1;
-			//Assert(((d[0]&0xc0)==0x80) && ((d[1]&0xc0)==0x80) &&
-			//		  ((d[2]&0xc0)==0x80), "Archive not utf-8 encoded %s", utf8);
-			//codepoint = (static_cast<int>(c&0x07)<<18) | (static_cast<int>(d[0]&0x3f)<<12) |
-			//(static_cast<int>(d[1]&0x3f)<<6) | static_cast<int>(d[2]&0x3f);
-			//return utf8 + 4;
 		} else {
 			Assert(false, "Archive not utf-8 encoded %s", utf8);
 			return utf8;
 		}
+		
+		return NULL;
 	}
 	
 	inline unsigned letter_utf8_length(board::Letter l) {
@@ -86,7 +77,7 @@ namespace board {
 		return string;
 	}
 	
-	char* word(Allocator& allocator, const State& state, Player player) {
+	char* letters(Allocator& allocator, const State& state, Player player) {
 		Assert(player < state.num_players, "Player index %d out of range [0, %d]", player, state.num_players);
 		
 		const Letter* word = state.letters[player];
@@ -106,11 +97,28 @@ namespace board {
 		decode(utf8, state.letters[player][letter]);
 	}
 	
-	void set_word(State& state, Player player,  const char* utf8) {
+	void set_letters(State& state, Player player,  const char* utf8) {
 		Assert(player < state.num_players, "Player index %d out of range [0, %d]", player, state.num_players);
 		Letter* word = state.letters[player];
 		const char* p = utf8;
 		for (unsigned i = 0; *p && i != NUM_LETTERS; ++i)
 			p = decode(p, word[i]);
+	}
+	
+	void set_word(State& state, const char* utf8) {
+		const char* p = utf8;
+		for (unsigned i = 0; *p && i != NUM_LETTERS; ++i)
+			p = decode(p, state.word[i]);
+	}
+	
+	char* word(Allocator& allocator, const State& state) {
+		unsigned length = word_utf8_length(state.word);
+		char* string = (char*)allocator.allocate(length);
+		char* p = string;
+		for (unsigned i = 0; i != NUM_LETTERS; ++i)
+			p = encode(state.word[i], p);
+		
+		*p = 0;
+		return string;
 	}
 }
