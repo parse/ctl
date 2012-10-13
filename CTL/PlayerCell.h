@@ -12,5 +12,6 @@
 
 + (void)setupStylesForCell:(UIView *)view borderLeft:(BOOL)borderLeft;
 
+@property (nonatomic) NSInteger playerIndex;
 
 @end

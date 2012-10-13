@@ -25,7 +25,7 @@
 #import "ProgressBarCell.h"
 #import "Player.h"
 #import "PlayerGameData.h"
-#import "PlayerInfoViewController.h"
+#import "PlayerInfoView.h"
 #import "Tile.h"
 #import "Board.h"
 #import "GCHelper.h"
@@ -160,8 +160,8 @@ board::State random_board() {
     UITouch *touch = [touches anyObject];
     CGPoint currentTouchPosition = [touch locationInView:_gameTableView];
     NSIndexPath *indexPath = [_gameTableView indexPathForRowAtPoint: currentTouchPosition];
-    
-    if (indexPath != nil) {
+    PlayerCell *cell = (PlayerCell *)[_gameTableView cellForRowAtIndexPath:indexPath];
+    if (indexPath != nil && nextLetterIndex < board::WORD_SIZE) {
         UIButton *characterButton = (UIButton *)sender;
         
         if ([characterButton isSelected]) return;
@@ -170,7 +170,7 @@ board::State random_board() {
         NSInteger buttonIndex = [characterButton tag]-1;
                         
         // Find associated Player and Tile
-        NSInteger chosenPlayerIndex = indexPath.row-2; //-2 is because we have a progress bar and chosen letters cell
+        NSInteger chosenPlayerIndex = cell.playerIndex;
         
         PlayerGameData *pressedPlayer = [_playerArray objectAtIndex:chosenPlayerIndex];
         Tile *t = (Tile *)[pressedPlayer.tileArray objectAtIndex:buttonIndex];
@@ -202,8 +202,8 @@ board::State random_board() {
 	
 	board::TempAllocator128 ta;
 	NSUInteger num_letters = board::num_word_letters(currentBoard);
-	
-	float w = MIN(cell.frame.size.width / num_letters, cell.frame.size.height);
+	float cellHeight = cell.frame.size.height;
+	float w = MIN(cell.frame.size.width / num_letters, cellHeight);
 	
 	for (NSUInteger i = 0; i != num_letters; ++i) {
 		UILabel *letter = [[UILabel alloc] init];
@@ -212,13 +212,8 @@ board::State random_board() {
 		[letter setText:[NSString stringWithCString:text encoding:NSUTF8StringEncoding]];
 		[letter setTextColor:[UIColor whiteColor]];
 		letter.backgroundColor = [UIColor clearColor];
-		letter.textAlignment = NSTextAlignmentCenter;
-		letter.frame = CGRectMake(w*i, 0, w, w);
-		
-		if (i != 0)
-            [PlayerCell setupStylesForCell:letter borderLeft:YES];
-        else
-            [PlayerCell setupStylesForCell:letter borderLeft:NO];
+		letter.textAlignment = UITextAlignmentCenter;
+		letter.frame = CGRectMake(w*i, (cellHeight-w)/2, w, w);
 		
 		[cell addSubview:letter];
 	}
@@ -255,12 +250,17 @@ board::State random_board() {
 	}
 	
     // TODO: Add player info meta data
-    //PlayerInfoViewController *playerInfoView = (PlayerInfoViewController *)[cell viewWithTag:6];
-    
-    //[playerInfoView setThumbnailImage: [UIImage imageNamed:@"ctl-logotype.png"]];
-    //[playerInfoView setCurrentScore:[NSNumber numberWithInt:1]];
-    //[playerInfoView setFutureScore:[NSNumber numberWithInt:1]];
-     
+	UIView *view = (UIView *)[cell viewWithTag:6];
+	
+	PlayerInfoView *infoView = [[PlayerInfoView alloc] initWithFrame:view.frame];
+	infoView.backgroundColor = [UIColor blackColor];
+	[infoView.thumbnailImageView setImage:[UIImage imageNamed:@"ctl-logotype.png"]];
+	[infoView.futureScoreLabel setText:@"1"];
+	[infoView.futureScoreLabel setTextColor:[UIColor whiteColor]];
+	[infoView.currentScoreLabel setText:@"0"];
+	[infoView.currentScoreLabel setTextColor:[UIColor whiteColor]];
+
+	[cell addSubview:infoView];
 }
 
 #pragma mark - Table View Delegate/Datasource Methods
@@ -306,6 +306,7 @@ board::State random_board() {
     } else if (indexPath.row >= PLAYER_CELL_INDEX_START) {
         cell = [tableView dequeueReusableCellWithIdentifier:playerCellIdentifier];
         [self setUpPlayerCell:(PlayerCell *)cell playerIndex:indexPath.row-2];
+		[((PlayerCell *)cell) setPlayerIndex:indexPath.row-2];
     } else {
 		Assert(false, "Invalid cell type");
 	}
